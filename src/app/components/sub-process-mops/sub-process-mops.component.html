@@ -1,0 +1,26 @@
+
+<div class="container">
+<div class="row">
+
+<div class="list-container">
+
+ <div class="panel panel-default topDisplay">
+    <div class="panel-body panelShade">{{processId}}</div>
+ </div>
+
+
+    <dx-list [dataSource]="dataSource">
+            <div *dxTemplate="let data of 'item'" class="itemDisplay">
+                <img src="{{data.Icon32}}"/>
+                <div class="alignClass">
+                {{data.workflow|json}}
+                Step 1 {{getWorkflowDescription(data.workflow, data.topicId)}}</div>
+            </div>
+    </dx-list>
+
+</div>
+
+
+</div>
+</div>
+

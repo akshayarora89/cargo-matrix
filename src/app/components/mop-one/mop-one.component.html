@@ -1,0 +1,45 @@
+
+<div class="container">
+<div class="row">
+
+ <div class="panel panel-default topDisplay">
+ 
+    <div class="panel-body panelShade">
+    <span class="dx-icon-arrowleft icon iconDisplay"></span>MOPS
+    </div>
+  </div>
+
+<div class="dx-searchbar topDisplay searchDisplay">
+    <dx-text-box 
+        valueChangeEvent="keyup" 
+        placeholder="Search mops" 
+        mode="search" 
+        (onValueChanged)="search($event)">
+    </dx-text-box>
+
+    <div class="dx-field">
+        <div class="dx-field-value">
+            <dx-button icon="plus" (onClick)="plusClick()">
+            </dx-button>
+        </div>
+    </div>
+
+</div>
+
+<div class="list-container">
+    <dx-list 
+        [dataSource]="dataSource">
+            <div *dxTemplate="let data of 'item'" class="itemDisplay">
+                <img src="{{data.logo}}"/>
+                <a href="/mop_processes">
+                <div class="alignClass">{{data.Name}}</div>
+                </a>
+            </div>
+    </dx-list>
+</div>
+</div>
+</div>
+
+
+
+

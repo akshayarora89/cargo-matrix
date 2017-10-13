@@ -1,0 +1,33 @@
+.itemDisplay{
+	display:inline-flex;
+}
+.alignClass {
+margin: 10px 20px;
+}
+.topDisplay{
+	margin-top: 2%;
+}
+.panelShade{
+	background-color:#f49542;
+	color:white;
+	font-weight: bold;
+}
+.labelDisplay{
+	  height: 20px;
+    margin-right: 12px;
+    margin-top: 1%;
+    text-align: center;
+}
+/deep/ .dx-fieldset {
+    max-width: 400px;
+}
+/deep/ .weather .dx-button-content {
+    padding: 4px 12px;
+}
+/deep/ .weather .dx-button-content .dx-icon {
+    width: 30px;
+    height: 30px;
+}
+.searchDisplay{
+    max-width:95%;
+}

@@ -1,0 +1,45 @@
+
+<div class="container">
+<div class="row">
+
+ <div class="panel panel-default topDisplay">
+    <div class="panel-body panelShade">MOP PROCESSES</div>
+  </div>
+
+<div class="dx-searchbar topDisplay searchDisplay">
+    <dx-text-box 
+        valueChangeEvent="keyup" 
+        placeholder="Search Processes" 
+        mode="search" 
+        (onValueChanged)="search($event)">
+    </dx-text-box>
+
+    <div class="dx-field">
+        <div class="dx-field-value">
+            <dx-button icon="plus" (onClick)="plusClick()">
+            </dx-button>
+        </div>
+    </div>
+
+</div>
+
+<div class="list-container">
+    <dx-list 
+        [dataSource]="dataSource">
+            <div *dxTemplate="let data of 'item'" class="itemDisplay">
+                <span class="label label-success labelDisplay">{{data.Phase}}</span>
+                <img src="{{data.Icon32}}"/>
+                <div class="alignClass">
+                <a routerLink="/mop_SubProcesses" (click)=setprocessSelected(data.Process)>
+                <b>{{data.TopicId}}</b>-{{data.Process}}
+                </a>
+                </div>
+            </div>
+    </dx-list>
+</div>
+
+</div>
+</div>
+
+
+

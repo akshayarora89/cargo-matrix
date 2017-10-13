@@ -1,0 +1,25 @@
+.itemDisplay{
+	display:inline-flex;
+}
+.alignClass {
+margin: 10px 20px;
+}
+.topDisplay{
+	margin-top: 2%;
+}
+.panelShade{
+	background-color:#f49542;
+	color:white;
+	font-weight: bold;
+}
+.iconDisplay {
+    font-size: 19px;
+    color: #5e6166;
+    padding-right: 21px;
+    margin-right: -74px;
+    float: right;
+
+}
+.searchDisplay{
+	max-width:95%;
+}
