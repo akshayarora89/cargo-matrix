@@ -22,15 +22,19 @@ export class SubProcessMopsComponent implements OnInit {
 }
   ngOnInit() {
   	this.processId = this.service.getSelectedProcess();
-  	
+
   }
   getWorkflowDescription(workflow, processId): string {
-  	let object: any = null;
+  	let object: any = null;	let object1: any = [];
   	if(workflow && workflow.length) {
   		object = workflow.filter((object) => {
   			return object.processId == processId.replace(/[^\d.]/g, '');
   		});
   	}
-  	return object.length ? object[0].description : '';
+  	for (var i = 0; i < object.length; i++) {
+
+  	object1.push({key: i+1, value: object[i].description});
+  	}
+  	return object.length ? object1 : '';
   }
 }
