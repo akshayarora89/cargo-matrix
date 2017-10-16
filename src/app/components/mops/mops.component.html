@@ -11,10 +11,10 @@
         valueChangeEvent="keyup" 
         placeholder="Search Processes" 
         mode="search" 
-        (onValueChanged)="search($event)" class="textStyle" style="width: 95%;">
+        (onValueChanged)="search($event)" class="textStyle">
     </dx-text-box>
 
-     <dx-button (click)="onButtonClick($event)" text="+" style="float: right;margin-top: -35px;"></dx-button>
+     <dx-button (click)="onButtonClick($event)" text="+" class="buttonStyle"></dx-button>
       <dx-popup #MyPopup show-title="true" title="Add New Mop Processes" [visible]="isVisible">
         <div *dxTemplate="let data of 'content'">
           <dx-form>
@@ -26,6 +26,10 @@
            <div class="form-group">
             <label for="TopicId">Enter Topic Id:</label>
             <input type="text" class="form-control" id="TopicId" placeholder="Enter Topic Id" name="TopicId" [(ngModel)] = "TopicId">
+          </div>
+           <div class="form-group">
+            <label for="Phase">Enter Phase:</label>
+            <input type="text" class="form-control" id="Phase" placeholder="Enter Topic Id" name="Phase" [(ngModel)] = "Phase">
           </div>
            <div class="form-group">
             <label for="TopicId">Enter Process Name:</label>

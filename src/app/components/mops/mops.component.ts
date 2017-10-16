@@ -21,6 +21,7 @@ export class MopsComponent implements OnInit {
    ProcessCodeId: any;
    TopicId:any;
    Process:string;
+   Phase:string;
    Icon32: any = "https://storage.googleapis.com/lnc-proovv-dev.appspot.com/cargo-iq-mop/1_0-32.png";
 
     constructor(private service: ProductService) {
@@ -51,14 +52,14 @@ export class MopsComponent implements OnInit {
       }
         
     onSubmit(e){
-      console.log("ProcessCodeId>>>>", this.ProcessCodeId);
         let newProcess = {
           ProcessCodeId: this.ProcessCodeId,
           TopicId:this.TopicId,
           Process:this.Process,
-          Icon32:this.Icon32
+          Icon32:this.Icon32,
+          Phase:this.Phase
         };
-        this.service.addProcess(newProcess);
+        this.service.addSubProcess(newProcess);
         this.dataSource = new DataSource({
             store: this.service.getProducts(),
             searchOperation: "contains",

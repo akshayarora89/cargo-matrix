@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="panel panel-default topDisplay">
-      <!-- <span class="dx-icon-arrowleft icon iconDisplay"></span> -->
       <div class="panel-body panelShade">
         MOPS
       </div>
     </div>
     <div class="dx-searchbar topDisplay searchDisplay">
-      <dx-text-box valueChangeEvent="keyup" placeholder="Search mops" mode="search" (onValueChanged)="search($event)" style="width: 95%;">
+      <dx-text-box valueChangeEvent="keyup" placeholder="Search mops" mode="search" (onValueChanged)="search($event)" class="textStyle">
       </dx-text-box>
 
-      <dx-button (click)="onButtonClick($event)" text="+" class="buttonStyle" style="float: right;margin-top: -35px;">
+      <dx-button (click)="onButtonClick($event)" text="+" class="buttonStyle">
       </dx-button>
       <dx-popup #MyPopup show-title="true" title="Add New Mop Details" [visible]="isVisible">
         <div *dxTemplate="let data of 'content'">
