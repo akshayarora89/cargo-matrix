@@ -4,6 +4,7 @@ import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
          DxFormComponent , DxSelectBoxModule } from 'devextreme-angular';
 import  DataSource  from 'devextreme/data/data_source';
 import { ProductService } from '../../services/product.service';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -11,8 +12,6 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './mops.component.html',
   styleUrls: ['./mops.component.css']
 })
-
-
 
 export class MopsComponent implements OnInit {
 
@@ -24,7 +23,7 @@ export class MopsComponent implements OnInit {
    Phase:string;
    Icon32: any = "https://storage.googleapis.com/lnc-proovv-dev.appspot.com/cargo-iq-mop/1_0-32.png";
 
-    constructor(private service: ProductService) {
+    constructor(private service: ProductService , private location: Location) {
         this.dataSource = new DataSource({
             store: service.getProducts(),
             searchOperation: "contains",
@@ -67,6 +66,9 @@ export class MopsComponent implements OnInit {
         });        
     }
 
+  onArrowBack(c){
+    this.location.back();
+  }
 
 }
 
