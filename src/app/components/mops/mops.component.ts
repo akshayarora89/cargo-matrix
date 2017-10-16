@@ -16,8 +16,13 @@ import { ProductService } from '../../services/product.service';
 
 export class MopsComponent implements OnInit {
 
-		dataSource: any;
-    process: any;
+	 dataSource: any;
+   process: any;
+   ProcessCodeId: any;
+   TopicId:any;
+   Process:string;
+   Icon32: any = "https://storage.googleapis.com/lnc-proovv-dev.appspot.com/cargo-iq-mop/1_0-32.png";
+
     constructor(private service: ProductService) {
         this.dataSource = new DataSource({
             store: service.getProducts(),
@@ -39,6 +44,27 @@ export class MopsComponent implements OnInit {
  setprocessSelected(abc) {
    this.service.setSelectedProcess(abc);
  }
+
+  public isVisible = false;
+    onButtonClick(e) {
+        this.isVisible = true;
+      }
+        
+    onSubmit(e){
+      console.log("ProcessCodeId>>>>", this.ProcessCodeId);
+        let newProcess = {
+          ProcessCodeId: this.ProcessCodeId,
+          TopicId:this.TopicId,
+          Process:this.Process,
+          Icon32:this.Icon32
+        };
+        this.service.addProcess(newProcess);
+        this.dataSource = new DataSource({
+            store: this.service.getProducts(),
+            searchOperation: "contains",
+            searchExpr: "Process"
+        });        
+    }
 
 
 }

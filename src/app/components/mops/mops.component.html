@@ -11,15 +11,32 @@
         valueChangeEvent="keyup" 
         placeholder="Search Processes" 
         mode="search" 
-        (onValueChanged)="search($event)">
+        (onValueChanged)="search($event)" class="textStyle" style="width: 95%;">
     </dx-text-box>
 
-    <div class="dx-field">
-        <div class="dx-field-value">
-            <dx-button icon="plus" (onClick)="plusClick()">
-            </dx-button>
+     <dx-button (click)="onButtonClick($event)" text="+" style="float: right;margin-top: -35px;"></dx-button>
+      <dx-popup #MyPopup show-title="true" title="Add New Mop Processes" [visible]="isVisible">
+        <div *dxTemplate="let data of 'content'">
+          <dx-form>
+          </dx-form>
+          <div class="form-group">
+            <label for="ProcessCodeId">Enter Process Code Id:</label>
+            <input type="number" class="form-control" id="id" placeholder="Enter Process Code id" name="id" [(ngModel)] = "ProcessCodeId">
+          </div>
+           <div class="form-group">
+            <label for="TopicId">Enter Topic Id:</label>
+            <input type="text" class="form-control" id="TopicId" placeholder="Enter Topic Id" name="TopicId" [(ngModel)] = "TopicId">
+          </div>
+           <div class="form-group">
+            <label for="TopicId">Enter Process Name:</label>
+            <input type="text" class="form-control" id="TopicId" placeholder="Enter Process Name" name="processName" [(ngModel)] = "process">
+          </div>
+          
+           <div class="form-group">
+            <input type="button" class="btn btn-warning" (click)="onSubmit($event)" value="Save"/>
+          </div>
         </div>
-    </div>
+      </dx-popup>
 
 </div>
 

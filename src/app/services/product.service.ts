@@ -1,5 +1,16 @@
 import { Injectable } from '@angular/core';
 
+export class Employee {
+    FirstName: string;
+    LastName: string;
+    Address: string;
+}
+
+let employee : Employee = {
+    FirstName: "John",
+    LastName: "Heart",
+    Address: "351 S Hill St., Los Angeles, CA",
+};
 
 
 export class Product {
@@ -376,6 +387,18 @@ export class ProductService {
   getSelectedProcess() {
     return this.processSelected;
   }
+
+ getEmployee() : Employee {
+      return employee;
+    }
+
+ addProcess(process: any) {
+   mops.push(process);
+ }
+  addSubProcess(subProcess: any) {
+   products.push(subProcess);
+ }
+
 }
 
 

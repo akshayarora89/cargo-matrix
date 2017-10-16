@@ -33,3 +33,10 @@ margin: 10px 20px;
     width: 30px;
     height: 30px;
 }
+.buttonStyle{
+    float: right;
+    margin-top: -35px;
+}
+.textStyle{
+    width: 95%;
+}

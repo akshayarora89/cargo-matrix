@@ -7,7 +7,13 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { RouterModule , Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DxTextBoxModule, DxListModule,DxBoxModule,DxTemplateModule,DxSelectBoxModule,DxFormModule,DxButtonModule} from 'devextreme-angular';
+import { FormsModule } from '@angular/forms';
+import { DxTextBoxModule, 
+  DxListModule,DxBoxModule,
+  DxTemplateModule,
+  DxPopupModule,
+  DxFormModule,
+  DxButtonModule,DxFormComponent} from 'devextreme-angular';
 import { ProductService } from './services/product.service';
 import { MopOneComponent } from './components/mop-one/mop-one.component';
 import { SubProcessMopsComponent } from './components/sub-process-mops/sub-process-mops.component';
@@ -34,10 +40,11 @@ const  appRoutes:Routes = [
     DxTextBoxModule,
     DxListModule,
     DxTemplateModule,
-    DxSelectBoxModule,
     DxFormModule,
     DxButtonModule,
     DxBoxModule,
+    DxPopupModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService],

@@ -12,7 +12,6 @@
     <dx-list [dataSource]="dataSource" >
             <div *dxTemplate="let data of 'item'">
                 <div *ngFor='let value of getWorkflowDescription(data.workflow, data.topicId);' >
-               
                 <div class="alignClass"  > <img src="{{data.Icon32}}"/> 
                 Step 1.{{value.key}} {{value.value}}
                 </div> 

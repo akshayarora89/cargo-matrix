@@ -13,10 +13,11 @@ margin: 10px 20px;
 	font-weight: bold;
 }
 .labelDisplay{
-	  height: 20px;
+	height: 16px;
     margin-right: 12px;
     margin-top: 1%;
     text-align: center;
+    width:90px;
 }
 /deep/ .dx-fieldset {
     max-width: 400px;
@@ -30,4 +31,11 @@ margin: 10px 20px;
 }
 .searchDisplay{
     max-width:95%;
+}
+.buttonStyle{
+    float: right;
+    margin-top: -35px;
+}
+.textStyle{
+    width: 95%;
 }
