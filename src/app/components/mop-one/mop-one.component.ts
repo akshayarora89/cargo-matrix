@@ -3,9 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
 DxFormComponent,DxPopupModule,DxPopupComponent} from 'devextreme-angular';
 import  DataSource  from 'devextreme/data/data_source';
-import { Employee,ProductService } from '../../services/product.service';
-
-
+import { ProductService } from '../../services/product.service';
 
 
 @Component({
@@ -19,7 +17,6 @@ export class MopOneComponent implements OnInit {
     @ViewChild(DxFormComponent) myForm:DxFormComponent; 
 
    dataSource: any;
-   employee: Employee;
    formId: any;
    name:string;
    logo: any = "https://storage.googleapis.com/lnc-proovv-dev.appspot.com/cargo-iq-mop/1_0-32.png";
@@ -30,7 +27,6 @@ export class MopOneComponent implements OnInit {
             searchOperation: "contains",
             searchExpr: "Name"
         });
-        this.employee = service.getEmployee();
     }
   ngOnInit() {}
     search(e) {
@@ -38,11 +34,6 @@ export class MopOneComponent implements OnInit {
         this.dataSource.load();
     }
     
-   /* plusClick() {
-        this.isVisible = true;
-        console.log(this.isVisible);
-    }
-    isVisible = true;*/
     public isVisible = false;
     onButtonClick(e) {
         this.isVisible = true;
@@ -62,8 +53,4 @@ export class MopOneComponent implements OnInit {
             searchExpr: "Name"
         });        
     }
-
-
-
-
 }
