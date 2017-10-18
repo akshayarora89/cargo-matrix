@@ -6,27 +6,25 @@ import { ProductService } from '../../services/product.service';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-sub-process-mops',
-  templateUrl: './sub-process-mops.component.html',
-  styleUrls: ['./sub-process-mops.component.css']
+  selector: 'app-mop-subsystem',
+  templateUrl: './mop-subsystem.component.html',
+  styleUrls: ['./mop-subsystem.component.css']
 })
-export class SubProcessMopsComponent implements OnInit {
+export class MopSubsystemComponent implements OnInit {
 
   dataSource: any;
-	selectedProcess: any = {};
-	iqCode: any = {};
-	showIqCode: boolean = false;
-	
+	selectedSubProcess: any = {};
+
 	constructor(private productService: ProductService, private location: Location) {}
   
   ngOnInit() {
-  	this.selectedProcess = this.productService.getSelectedProcess();
+  	this.selectedSubProcess = this.productService.getSelectedSubProcess();
   	this.setDataSource();
   }
 
   setDataSource() {
     this.dataSource = new DataSource({
-      store: this.selectedProcess.workflow,
+      store: this.selectedSubProcess.workflowSubstep,
       searchOperation: "contains",
       searchExpr: "description"
     });
@@ -41,25 +39,8 @@ export class SubProcessMopsComponent implements OnInit {
   	this.productService.setSelectedSubProcess(subProcess);
   }
 
-   setIqCode(subProcess) {
-  	let iqCodeObject = subProcess.workflowIQCodes && subProcess.workflowIQCodes.length ? subProcess.workflowIQCodes[0].iqcode : "No IQCode"; 
-  	if(typeof(iqCodeObject) == "object" && !Array.isArray(iqCodeObject)) {
-  		this.iqCode = `${iqCodeObject.milestone}\n${iqCodeObject.meaning}\n${iqCodeObject.notes}`;	
-  	} else {
-  		this.iqCode = "No IqCode";
-  	}
-  }
-
-  updateIqCodeOnMouseOver(subProcess) {
-  	this.setIqCode(subProcess);
-  	this.showIqCode = true;
-  }
-
-  updateIqCodeOnMouseOut() {
-  	this.showIqCode = false;
-  }
-
   onArrowBack(e){
     this.location.back();
   }
+  
 }

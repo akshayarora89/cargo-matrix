@@ -10,20 +10,14 @@
     </div>
     <div class="list-container">
       <dx-list [dataSource]="dataSource">
-        <div *dxTemplate="let data of 'item'" class="itemDisplay" (mouseover)="updateIqCodeOnMouseOver(data)" (mouseout)="updateIqCodeOnMouseOut()">
-          <img src="{{data.workflowSubstep.length ? data.workflowSubstep[0].icon32 : ''}}" />
+        <div *dxTemplate="let data of 'item'" class="itemDisplay">
+          <img src="{{data.icon32}}" />
           <div routerLink="/mop_SubSystem" (click)="setSelectedSubProcess(data)" class="alignClass">
             {{data.description}}
           </div>
           <!-- <span class="label label-success labelDisplay">{{data.phases.code}} - {{data.phases.description}}</span> -->
         </div>
       </dx-list>
-      <div *ngIf="showIqCode" class="iqCode">
-        <h4>IQCode</h4>
-        <pre class="iqcode">
-          {{iqCode}}
-        </pre>
-      </div>
     </div>
   </div>
 </div>

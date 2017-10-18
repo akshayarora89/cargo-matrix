@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+.dx-icon-arrowleft {
+	padding: 5px;
+}
+.dx-icon-arrowleft:hover {
+	background-color: rgba(0,0,0,.2);
+}

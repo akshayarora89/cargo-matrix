@@ -4,7 +4,6 @@ import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
          DxFormComponent , DxSelectBoxModule } from 'devextreme-angular';
 import  DataSource  from 'devextreme/data/data_source';
 import { ProductService } from '../../services/product.service';
-import {Location} from '@angular/common';
 
 
 @Component({
@@ -15,61 +14,48 @@ import {Location} from '@angular/common';
 
 export class MopsComponent implements OnInit {
 
-	 dataSource: any;
-   process: any;
-   ProcessCodeId: any;
-   TopicId:any;
-   Process:string;
-   Phase:string;
-   Icon32: any = "https://storage.googleapis.com/lnc-proovv-dev.appspot.com/cargo-iq-mop/1_0-32.png";
-
-    constructor(private service: ProductService , private location: Location) {
-        this.dataSource = new DataSource({
-            store: service.getProducts(),
-            searchOperation: "contains",
-            searchExpr: "Process"
-        });
-    }
+	dataSource: any;
+  isVisible: boolean = false;
+  companyId: string = "";
+  companyName: string = "";
+  defaultLogo: string = "assets/images/cm_IATA.ico";
+  
+  constructor(private productService: ProductService) {}
+   
   ngOnInit() {
+    this.setDataSource();  
   }
-    search(e) {
-        this.dataSource.searchValue(e.value);
-        this.dataSource.load();
+  
+  setDataSource() {
+    this.dataSource = new DataSource({
+      store: this.productService.getCompanies(),
+      searchOperation: "contains",
+      searchExpr: "name"
+    });
+  }
+
+  search(e) {
+    this.dataSource.searchValue(e.value);
+    this.dataSource.load();
+  }
+
+  openAddCompanyPopup() {
+    this.isVisible = true;
+  }
+
+  addCompany() {
+    let newCompany = {
+      name: this.companyName,
+      logo: this.defaultLogo
     }
-
-    plusClick() {
-    alert("The button was clicked");
+    this.productService.addCompany(newCompany);
+    this.setDataSource();
   }
 
- setprocessSelected(abc) {
-   this.service.setSelectedProcess(abc);
- }
-
-  public isVisible = false;
-    onButtonClick(e) {
-        this.isVisible = true;
-      }
-        
-    onSubmit(e){
-        let newProcess = {
-          ProcessCodeId: this.ProcessCodeId,
-          TopicId:this.TopicId,
-          Process:this.Process,
-          Icon32:this.Icon32,
-          Phase:this.Phase
-        };
-        this.service.addSubProcess(newProcess);
-        this.dataSource = new DataSource({
-            store: this.service.getProducts(),
-            searchOperation: "contains",
-            searchExpr: "Process"
-        });        
-    }
-
-  onArrowBack(c){
-    this.location.back();
+  updateCurrentCompany(company) {
+    if(company)
+      this.productService.setSelectedCompany(company);
   }
-
 }
 
 

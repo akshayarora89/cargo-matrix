@@ -23,20 +23,3 @@ margin: 10px 20px;
 .searchDisplay{
 	max-width:95%;
 }
-/deep/ .dx-fieldset {
-    max-width: 400px;
-}
-/deep/ .weather .dx-button-content {
-    padding: 4px 12px;
-}
-/deep/ .weather .dx-button-content .dx-icon {
-    width: 30px;
-    height: 30px;
-}
-.buttonStyle{
-    float: right;
-    margin-top: -35px;
-}
-.textStyle{
-    width: 95%;
-}

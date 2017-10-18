@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MopsComponent } from './components/mops/mops.component';
 import { HeaderComponent } from './components/layout/header/header.component';
@@ -16,14 +17,16 @@ import { DxTextBoxModule,
   DxFormModule,
   DxButtonModule,DxFormComponent} from 'devextreme-angular';
 import { ProductService } from './services/product.service';
-import { MopOneComponent } from './components/mop-one/mop-one.component';
+import { MopProcessesComponent } from './components/mop-processes/mop-processes.component';
 import { SubProcessMopsComponent } from './components/sub-process-mops/sub-process-mops.component';
+import { MopSubsystemComponent } from './components/mop-subsystem/mop-subsystem.component';
 
 const  appRoutes:Routes = [
   {path:'',component:HomeComponent},
-  {path:'mops',component:MopOneComponent},
-  {path:'mop_processes',component:MopsComponent},
-   {path:'mop_SubProcesses',component:SubProcessMopsComponent},
+  {path:'mops',component:MopsComponent},
+  {path:'mop_processes',component:MopProcessesComponent},
+  {path:'mop_SubProcesses',component:SubProcessMopsComponent},
+  {path:'mop_SubSystem',component:MopSubsystemComponent},
 ];
 
 @NgModule({
@@ -33,11 +36,13 @@ const  appRoutes:Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    MopOneComponent,
-    SubProcessMopsComponent
+    MopProcessesComponent,
+    SubProcessMopsComponent,
+    MopSubsystemComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     DxTextBoxModule,
     DxListModule,
     DxTemplateModule,

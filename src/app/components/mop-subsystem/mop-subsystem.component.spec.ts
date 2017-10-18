@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MopOneComponent } from './mop-one.component';
+import { MopSubsystemComponent } from './mop-subsystem.component';
 
-describe('MopOneComponent', () => {
-  let component: MopOneComponent;
-  let fixture: ComponentFixture<MopOneComponent>;
+describe('MopSubsystemComponent', () => {
+  let component: MopSubsystemComponent;
+  let fixture: ComponentFixture<MopSubsystemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MopOneComponent ]
+      declarations: [ MopSubsystemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MopOneComponent);
+    fixture = TestBed.createComponent(MopSubsystemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
