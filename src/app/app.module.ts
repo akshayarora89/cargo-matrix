@@ -30,7 +30,7 @@ const  appRoutes:Routes = [
   {path:'mop_processes',component:MopProcessesComponent},
   {path:'mop_SubProcesses',component:SubProcessMopsComponent},
   {path:'mop_SubSystem',component:MopSubsystemComponent},
-  {path:'ContactdisplayWidget',component:ShippingWidgetDisplayComponentComponent}
+  {path:'shippingContactDisplayWidget',component:ShippingWidgetDisplayComponentComponent}
 ];
 
 @NgModule({
