@@ -80,6 +80,7 @@
     {
       "Header": "Issuing Carrier’s Name & Address",
       "Name": "AMERICAN AIRLINES",
+      "Account_no": "NULL",
       "Address":
       {
         "StreetAddress": "3400 INNER LOOP ROAD  SUI",
@@ -96,6 +97,7 @@
     {
       "Header": "Issuing Carrier’s Name & Address",
       "Name": "CONTINENTAL AIRLINES",
+      "Account_no": "NULL",
       "Address":
       {
         "StreetAddress": "3400 N INNER LOOP RD",
