@@ -1,0 +1,113 @@
+{
+  "Shipper":
+  {
+    "Key": "01",
+    "WholderID": "W01",
+    "Name": "Shipper & Consignee’s Name and Address",
+    "Properties": [
+    {
+      "Header": "Shipper & Consignee’s Name and Address",
+      "Name": "TRADITION A-S",
+      "Account_no": "NULL",
+      "Address":
+      {
+        "StreetAddress": "KONGEVEJEN 2",
+        "CountryName": "Denmark",
+        "CountryCode": "DK",
+        "City": "FREDENSBORG",
+        "StateName": "NULL",
+        "PostalCode": "3480",
+        "Phone": "2161478039200140",
+        "Fax": "NULL"
+      },
+      "Tax_ID_Name": "NULL",
+      "Tax ID Refrence": "NULL"
+    },
+    {
+      "Header": "Shipper & Consignee’s Name and Address",
+      "Name": "JINDAL FILMS AMERICAS",
+      "Account_no": "NULL",
+      "Address":
+      {
+        "StreetAddress": "411 PEGASUS PARKWAY LAGRANGE",
+        "CountryName": "United States of America",
+        "CountryCode": "US",
+        "City": "CHICAGO",
+        "State": "NULL",
+        "PostalCode": "NULL",
+        "Phone": "NULL",
+        "Fax": "NULL"
+      },
+      "Tax_ID_Name": "NULL",
+      "Tax ID Refrence": "NULL"
+    }]
+  },
+  "Carrier Agent":
+  {
+    "Key": "02",
+    "WholderID": "W02",
+    "Name": "Issuing Carrier’s Agent Name",
+    "Properties": [
+    {
+      "Header": "Issuing Carrier’s Agent Name",
+      "Name": "KUEHNE AND NAGEL IRELAND LTD",
+      "Account_no": "NULL",
+      "Address":
+      {
+        "City": "CO. CLARE"
+      },
+      "IATA Agent Code": "3647018",
+      "CASS Code": "NULL"
+    },
+    {
+      "Header": "Issuing Carrier’s Agent Name",
+      "Name": "QCS QUICK CARGO SERVICES B.V.",
+      "Account_no": "NULL",
+      "Address":
+      {
+        "City": "SCHIPHOL"
+      },
+      "IATA Agent Code": "5745336",
+      "CASS Code": "NULL"
+    }]
+  },
+  "Carrier":
+  {
+    "Key": "03",
+    "WholderID": "W03",
+    "Name": "Issuing Carrier’s Name & Address",
+    "Properties": [
+    {
+      "Header": "Issuing Carrier’s Name & Address",
+      "Name": "AMERICAN AIRLINES",
+      "Address":
+      {
+        "StreetAddress": "3400 INNER LOOP ROAD  SUI",
+        "City": "ATLANTA",
+        "State": "GA",
+        "PostalCode": "30354",
+        "Phone": "919-840-1429",
+        "CarrierContact": "GINY WHEELER",
+        "CountryCode": "US",
+        "Fax": "919-840-1403",
+        "Email": "GINY.WHEELER@AA.COM"
+      }
+    },
+    {
+      "Header": "Issuing Carrier’s Name & Address",
+      "Name": "CONTINENTAL AIRLINES",
+      "Address":
+      {
+        "StreetAddress": "3400 N INNER LOOP RD",
+        "City": "HAPEVILLE",
+        "State": "GA",
+        "PostalCode": "30354",
+        "Phone": "(404) 530-3549",
+        "CarrierContact": "JIM CRONIN",
+        "CountryCode": "US",
+        "Fax": "(404) 331-2804",
+        "Email": "JCRONI@COAIR.COM"
+      }
+    }]
+  }
+}

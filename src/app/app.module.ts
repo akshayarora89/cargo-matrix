@@ -17,9 +17,12 @@ import { DxTextBoxModule,
   DxFormModule,
   DxButtonModule,DxFormComponent} from 'devextreme-angular';
 import { ProductService } from './services/product.service';
+import { WidgetService } from './services/widget.service';
 import { MopProcessesComponent } from './components/mop-processes/mop-processes.component';
 import { SubProcessMopsComponent } from './components/sub-process-mops/sub-process-mops.component';
 import { MopSubsystemComponent } from './components/mop-subsystem/mop-subsystem.component';
+import { ShippingWidgetDisplayComponentComponent } from './components/shipping-widget-display-component/shipping-widget-display-component.component';
+import { WidgetComponentComponent } from './components/widget-component/widget-component.component';
 
 const  appRoutes:Routes = [
   {path:'',component:HomeComponent},
@@ -27,6 +30,7 @@ const  appRoutes:Routes = [
   {path:'mop_processes',component:MopProcessesComponent},
   {path:'mop_SubProcesses',component:SubProcessMopsComponent},
   {path:'mop_SubSystem',component:MopSubsystemComponent},
+  {path:'ContactdisplayWidget',component:ShippingWidgetDisplayComponentComponent}
 ];
 
 @NgModule({
@@ -38,7 +42,9 @@ const  appRoutes:Routes = [
     HomeComponent,
     MopProcessesComponent,
     SubProcessMopsComponent,
-    MopSubsystemComponent
+    MopSubsystemComponent,
+    ShippingWidgetDisplayComponentComponent,
+    WidgetComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,10 @@ const  appRoutes:Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductService],
+  providers: [ProductService,WidgetService],
+  exports: [
+    WidgetComponentComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
