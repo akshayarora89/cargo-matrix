@@ -1,6 +1,6 @@
 <div class="container topSpace">
 
-  <div class="well well-lg">
+  <div class="well well-lg" *ngIf="type === 'Shipper'">
     <div class="row">
       <div class="col-md-12">
         <div class="col-md-12">
@@ -36,4 +36,113 @@
       </div>
     </div>
   </div>
+
+  <!-- if type is Carrier Agent -->
+
+<div class="well well-lg" *ngIf="type === 'Carrier Agent'">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-12">
+          <div class="col-md-6">{{WidgetHolderName}}</div>
+        <!--   <div class="col-md-4">Account Number</div> -->
+        </div>
+
+        <div class="col-md-12">
+        <div class="col-md-10 topSpace">
+          <div class="panel panel-success">
+            <div class="panel-body">{{shipperName}}</div>
+          </div>
+        </div>
+      <!--   <div class="col-md-4 topSpace">
+          <div class="panel panel-success">
+            <div class="panel-body">{{shipperAccountNo}}</div>
+          </div>
+        </div> -->
+        <div class="col-md-2 topSpace">
+          <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg">
+          </dx-button>
+          <dx-button text="+" class="buttonStyle addBtn">
+          </dx-button>
+        </div>
+        </div>
+
+         <div class="col-md-12">
+          <div class="col-md-6">Account No.</div>
+          <div class="col-md-6">Agent City</div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div class="panel panel-success topSpace">
+            <div class="panel-body">{{shipperAccountNo}}</div>
+          </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-success topSpace">
+            <div class="panel-body">{{city}}</div>
+          </div>
+          </div>
+        </div>
+
+
+         <div class="col-md-12">
+          <div class="col-md-6">IATA Agent Code</div>
+          <div class="col-md-6">CASS Code</div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div class="panel panel-success topSpace">
+            <div class="panel-body">{{IATA_Agent_Code}}</div>
+          </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-success topSpace">
+            <div class="panel-body">{{CASS_Code}}</div>
+          </div>
+          </div>
+        </div>
+
+     
+      </div>
+    </div>
+
+</div>
+
+<div class="well well-lg" *ngIf="type === 'Carrier'">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-12">
+          <div class="col-md-6">{{WidgetHolderName}}</div>
+        </div>
+
+        <div class="col-md-12">
+
+        <div class="col-md-10 topSpace">
+          <div class="panel panel-success">
+            <div class="panel-body">{{shipperName}}</div>
+          </div>
+        </div>
+
+        <div class="col-md-2 topSpace">
+          <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg">
+          </dx-button>
+          <dx-button text="+" class="buttonStyle addBtn">
+          </dx-button>
+        </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="panel panel-success">
+            <div class="panel-body">
+              {{complieAddress}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
 </div>

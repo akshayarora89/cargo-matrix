@@ -54,10 +54,18 @@
       "Account_no": "NULL",
       "Address":
       {
-        "City": "CO. CLARE"
+        "City": "CO. CLARE",
+        "StreetAddress": " ",
+        "CountryName": "",
+        "CountryCode": "",
+        "StateName": "",
+        "PostalCode": "",
+        "Phone": "NULL",
+        "Fax": ""
       },
-      "IATA Agent Code": "3647018",
-      "CASS Code": "NULL"
+      "Tax_ID_Name": "NULL",
+      "IATA_Agent_Code": "3647018",
+      "CASS_Code": "NULL"
     },
     {
       "Header": "Issuing Carrier’s Agent Name",
@@ -65,10 +73,18 @@
       "Account_no": "NULL",
       "Address":
       {
-        "City": "SCHIPHOL"
+        "City": "SCHIPHOL",
+        "StreetAddress": " ",
+        "CountryName": "",
+        "CountryCode": "",
+        "StateName": "",
+        "PostalCode": "",
+        "Phone": "NULL",
+        "Fax": ""
       },
-      "IATA Agent Code": "5745336",
-      "CASS Code": "NULL"
+      "Tax_ID_Name": "NULL",
+      "IATA_Agent_Code": "5745336",
+      "CASS_Code": "NULL"
     }]
   },
   "Carrier":
@@ -92,7 +108,8 @@
         "CountryCode": "US",
         "Fax": "919-840-1403",
         "Email": "GINY.WHEELER@AA.COM"
-      }
+      },
+      "Tax_ID_Name": "NULL"
     },
     {
       "Header": "Issuing Carrier’s Name & Address",
@@ -109,7 +126,8 @@
         "CountryCode": "US",
         "Fax": "(404) 331-2804",
         "Email": "JCRONI@COAIR.COM"
-      }
+      },
+      "Tax_ID_Name": "NULL"
     }]
   }
 }

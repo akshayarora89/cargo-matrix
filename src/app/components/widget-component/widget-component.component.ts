@@ -10,6 +10,7 @@ import  DataSource  from 'devextreme/data/data_source';
 })
 export class WidgetComponentComponent implements OnInit {
 
+
 	widgetData:any;
 	dataSource: any;
 	data: any;
@@ -24,13 +25,19 @@ export class WidgetComponentComponent implements OnInit {
   shipperAddress:any;
   complieAddress:any;
   displayAddress:any;
+  specificType:any;
+  IATA_Agent_Code:any;
+  CASS_Code:any;
+  city:any;
 
+ 
 
 
 
   constructor(private widgetService: WidgetService) {}
 
   ngOnInit() {
+    
 		this.widgetService.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
       this.widgetData = data && JSON.parse(data);
       this.widgetInfo = this.widgetData[this.type];
@@ -39,18 +46,28 @@ export class WidgetComponentComponent implements OnInit {
       this.WidgetProperties=this.widgetInfo.Properties;
 
       this.infoProperty=this.WidgetProperties[0];
+
+      this.IATA_Agent_Code = this.infoProperty.IATA_Agent_Code;
+      this.CASS_Code = this.infoProperty.CASS_Code;
       this.shipperName=this.infoProperty.Name;
       this.shipperAccountNo=this.infoProperty.Account_no;
       this.shipperAddress=this.infoProperty.Address;
+      this.city = this.shipperAddress.City;
       this.displayAddress=this.getAddress().complieAddress;
+
+
+     
+
     });
   }
 
   getAddress():any{
+
     this.shipperAddress=this.infoProperty.Address;
     this.complieAddress=this.shipperAddress.StreetAddress+ " " +this.shipperAddress.CountryName+" "+this.shipperAddress.City+
     " "+this.shipperAddress.CountryCode+" "+this.shipperAddress.PostalCode + " Phone No.:" + this.shipperAddress.Phone+
     " "+ "  Tax ID Name:" +this.infoProperty.Tax_ID_Name;
+
     return this.complieAddress; 
   }
 
