@@ -33,7 +33,6 @@ export class WidgetComponentComponent implements OnInit {
   ngOnInit() {
 		this.widgetService.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
       this.widgetData = data && JSON.parse(data);
-      console.log('data >>>>', this.widgetData, this.type);
       this.widgetInfo = this.widgetData[this.type];
 
       this.WidgetHolderName = this.widgetInfo.Name;

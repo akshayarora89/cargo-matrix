@@ -10,7 +10,6 @@ export class WidgetService {
   constructor(private http: Http) { 
   	this.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
       this.widgetData = data && JSON.parse(data);
-      console.log('widgetData in service>>>>>>',this.widgetData);
     });
   }
   getWidgetDataFromFile(filename) {
