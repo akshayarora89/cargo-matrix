@@ -24,8 +24,11 @@
           </div>
           <div class="col-md-2 topSpace">
             <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" 
-            (click)="openAddressBook($event)">
+             (click)="openAddressBook($event)">
             </dx-button>
+
+
+
             <dx-button class="buttonStyle addBtn" icon="assets/images/addbutton.png" >
             </dx-button>
           </div>
@@ -77,35 +80,35 @@
 
   <!--Address Book Popup -->
 
- <dx-popup #MyPopup show-title="true" title="Address Book" [visible]="isVisible">
-  <div *dxTemplate="let data of 'content'" id="myPopup" class="custom-popup">
+
+
+ <dx-popup #MyPopup 
+ class="popup"
+        [showTitle]="true"
+        title="Address Book"
+        [dragEnabled]="false"
+        [closeOnOutsideClick]="true"
+        [(visible)]="isVisible">
+  <div *dxTemplate="let data of 'content'" id="myPopup">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-9"></div>
-          <div class="col-md-1"></div>
-          <div class="col-md-2">
-            <!-- <dx-button class="buttonStyle newAdd" icon="assets/images/addbutton.png">
-            </dx-button> -->
-          </div>
-        </div>
         
         <div class="col-md-12">
           <dx-button class="buttonStyle newAdd" icon="assets/images/addbutton.png"></dx-button>
-          <dx-data-grid id="gridContainer" [dataSource]="address" [allowColumnReordering]="true" [allowColumnResizing]="true" [columnAutoWidth]="true">
-            <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true">
-            </dxo-editing>
-            <dxo-header-filter [visible]="true"></dxo-header-filter>
-            <dxi-column [allowHeaderFiltering]="false"></dxi-column>
-            <dxo-filter-row [visible]="true"></dxo-filter-row>
-            <dxi-column [allowFiltering]="false"></dxi-column>
-            <dxo-search-panel [visible]="true"></dxo-search-panel>
-            <dxi-column [allowSearch]="false"></dxi-column>
-            <dxi-column dataField="CompanyName"></dxi-column>
-            <dxi-column dataField="CountryName" *ngIf="type !== 'Carrier Agent'"></dxi-column>
-            <dxi-column dataField="City"></dxi-column>
-            <dxi-column dataField="State"></dxi-column>
-            <dxi-column dataField="Phone"></dxi-column>
+          <dx-data-grid id="gridContainer" 
+          [dataSource]="address" 
+          [allowColumnReordering]="true" 
+          [allowColumnResizing]="true" 
+          [columnAutoWidth]="true">
+
+          <dxo-header-filter [visible]="true"></dxo-header-filter>
+          <dxo-filter-row [visible]="true"></dxo-filter-row>
+          <dxo-search-panel [visible]="true"></dxo-search-panel>
+          <dxi-column dataField="CompanyName"></dxi-column>
+          <dxi-column dataField="CountryName" *ngIf="type !== 'Carrier Agent'"></dxi-column>
+          <dxi-column dataField="City"></dxi-column>
+          <dxi-column dataField="State"></dxi-column>
+          <dxi-column dataField="Phone"></dxi-column>
           </dx-data-grid>
         </div>
       </div>
