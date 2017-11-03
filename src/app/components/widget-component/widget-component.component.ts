@@ -19,27 +19,28 @@ export class WidgetComponentComponent implements OnInit {
 	data: any;
 	@Input() type: any;
   @Input() event: any;
-  widgetInfo:any;
-  WidgetHolderName:String;
+  widgetInfo:any = {
+    Name: ""
+  };
   WidgetProperties:any;
   WidgetAddress:any;
-  infoProperty:any;
-  shipperName:any;
-  shipperAccountNo:any;
-  shipperAddress:any;
+  infoProperty:any={
+   Name :"",
+   Account_no:"",
+   Address:"",
+   IATA_Agent_Code:"",
+   CASS_Code:""
+  };
+  shipperAddress:any={
+    City:""
+  };
   complieAddress:any;
   displayAddress:any;
-  specificType:any;
-  IATA_Agent_Code:any;
-  CASS_Code:any;
-  city:any;
   isVisible: boolean = false;
   AddressBookDetails=[];
   address=[];
   columns=[];
   newVar:any;
-
-
 
 
   constructor(private widgetService: WidgetService) {}
@@ -50,18 +51,12 @@ export class WidgetComponentComponent implements OnInit {
       
       this.widgetData = data && JSON.parse(data);
       this.widgetInfo = this.widgetData[this.type];
-      this.WidgetHolderName = this.widgetInfo.Name;
       this.WidgetProperties=this.widgetInfo.Properties;
       this.infoProperty=this.WidgetProperties[0];
       this.newVar  = this.WidgetProperties[0].Address;
       this.columns=Object.keys(this.newVar);  
       this.getAddressarr(this.WidgetProperties);
-      this.IATA_Agent_Code = this.infoProperty.IATA_Agent_Code;
-      this.CASS_Code = this.infoProperty.CASS_Code;
-      this.shipperName=this.infoProperty.Name;
-      this.shipperAccountNo=this.infoProperty.Account_no;
       this.shipperAddress=this.infoProperty.Address;
-      this.city = this.shipperAddress.City;
       this.displayAddress=this.getAddress().complieAddress;
     });
   }
@@ -69,11 +64,10 @@ export class WidgetComponentComponent implements OnInit {
   getAddressarr(abcd):any{
     for (let i = 0; i < this.WidgetProperties.length; i++) { 
      this.address.push(this.WidgetProperties[i].Address);
+     this.address[i].CompanyName=this.WidgetProperties[i].Name;
     }
   return this.address; 
   };
-
-  
 
   getAddress():any{
 

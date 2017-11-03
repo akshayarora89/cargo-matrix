@@ -1,117 +1,68 @@
 <div class="container topSpace">
-  <!-- if type is Shipper and Consignee -->
-  <div class="well well-lg" *ngIf="type === 'Shipper'">
+  <div class="well well-lg">
     <div class="row">
       <div class="col-md-12">
         <div class="col-md-12">
-          <div class="col-md-6">{{WidgetHolderName}}</div>
-          <div class="col-md-4">Account Number</div>
+          <div class="col-md-6">{{widgetInfo.Name}}</div>
+          <div class="col-md-4" *ngIf="type === 'Shipper'">Account Number</div>
         </div>
         <div class="col-md-12">
-          <div class="col-md-6 topSpace">
+          <div class="col-md-6 topSpace" *ngIf="type === 'Shipper'">
             <div class="panel panel-success">
-              <div class="panel-body">{{shipperName}}</div>
+              <div class="panel-body">{{infoProperty.Name}}</div>
             </div>
           </div>
-          <div class="col-md-4 topSpace">
+          <div class="col-md-4 topSpace" *ngIf="type === 'Shipper'">
             <div class="panel panel-success">
-              <div class="panel-body">{{shipperAccountNo}}</div>
+              <div class="panel-body">{{infoProperty.Account_no}}</div>
             </div>
           </div>
-          <div class="col-md-2 topSpace">
-            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" (click)="openAddressBook($event)">
-            </dx-button>
-            <dx-button text="+" class="buttonStyle addBtn">
-            </dx-button>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="col-md-12">
+          <div class="col-md-10 topSpace" *ngIf="type !== 'Shipper'">
             <div class="panel panel-success">
-              <div class="panel-body">
-                {{complieAddress}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- if type is Carrier Agent -->
-  <div class="well well-lg" *ngIf="type === 'Carrier Agent'">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="col-md-12">
-          <div class="col-md-6">{{WidgetHolderName}}</div>
-        </div>
-        <div class="col-md-12">
-          <div class="col-md-10 topSpace">
-            <div class="panel panel-success">
-              <div class="panel-body">{{shipperName}}</div>
+              <div class="panel-body">{{infoProperty.Name}}</div>
             </div>
           </div>
           <div class="col-md-2 topSpace">
-            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" (click)="openAddressBook($event)">
+            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" 
+            (click)="openAddressBook($event)">
             </dx-button>
-            <dx-button text="+" class="buttonStyle addBtn">
+            <dx-button class="buttonStyle addBtn" icon="assets/images/addbutton.png" >
             </dx-button>
           </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="type === 'Carrier Agent'">
           <div class="col-md-6">Account No.</div>
           <div class="col-md-6">Agent City</div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="type === 'Carrier Agent'">
           <div class="col-md-6">
             <div class="panel panel-success topSpace">
-              <div class="panel-body">{{shipperAccountNo}}</div>
+              <div class="panel-body">{{infoProperty.Account_no}}</div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" *ngIf="type === 'Carrier Agent'">
             <div class="panel panel-success topSpace">
-              <div class="panel-body">{{city}}</div>
+              <div class="panel-body">{{shipperAddress.City}}</div>
             </div>
           </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="type === 'Carrier Agent'">
           <div class="col-md-6">IATA Agent Code</div>
           <div class="col-md-6">CASS Code</div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="type === 'Carrier Agent'">
           <div class="col-md-6">
             <div class="panel panel-success topSpace">
-              <div class="panel-body">{{IATA_Agent_Code}}</div>
+              <div class="panel-body">{{infoProperty.IATA_Agent_Code}}</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="panel panel-success topSpace">
-              <div class="panel-body">{{CASS_Code}}</div>
+              <div class="panel-body">{{infoProperty.CASS_Code}}</div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- if type is Carrier -->
-  <div class="well well-lg" *ngIf="type === 'Carrier'">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="col-md-12">
-          <div class="col-md-6">{{WidgetHolderName}}</div>
-        </div>
-        <div class="col-md-12">
-          <div class="col-md-10 topSpace">
-            <div class="panel panel-success">
-              <div class="panel-body">{{shipperName}}</div>
-            </div>
-          </div>
-          <div class="col-md-2 topSpace">
-            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" (click)="openAddressBook($event)">
-            </dx-button>
-            <dx-button text="+" class="buttonStyle addBtn">
-            </dx-button>
-          </div>
-        </div>
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="type !== 'Carrier Agent'">
           <div class="col-md-12">
             <div class="panel panel-success">
               <div class="panel-body">
@@ -122,39 +73,39 @@
       </div>
     </div>
   </div>
-</div>
-<!--Address Book Popup -->
-<dx-popup #MyPopup show-title="true" title="Address Book" [visible]="isVisible">
-  <div *dxTemplate="let data of 'content'" id="myPopup" class="custom-popup">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-8">
-            <div class="panel panel-default">
-              <div class="panel-body" style="padding:9px;">Drag a coloumn header here to group by that coloumn</div>
+
+
+  <!--Address Book Popup -->
+  <dx-popup #MyPopup show-title="true" title="Address Book" [visible]="isVisible">
+    <div *dxTemplate="let data of 'content'" id="myPopup" class="custom-popup">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-9"></div>
+            <div class="col-md-1"> 
+            <dx-button text="+" class="buttonStyle newAdd">
+            </dx-button></div>
+            <div class="col-md-2">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input id="search" type="text" class="form-control" name="search" placeholder="search ..">
+              </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-              <input id="search" type="text" class="form-control" name="search" placeholder="search ..">
-            </div>
+          <div class="col-md-12">
+            <dx-data-grid id="gridContainer" [dataSource]="address" [allowColumnReordering]="true" [allowColumnResizing]="true" [columnAutoWidth]="true">
+              <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+              <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+              <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true">
+              </dxo-editing>
+              <dxi-column dataField="CompanyName"></dxi-column>
+              <dxi-column dataField="CountryName" *ngIf="type !== 'Carrier Agent'"></dxi-column>
+              <dxi-column dataField="City"></dxi-column>
+              <dxi-column dataField="State"></dxi-column>
+              <dxi-column dataField="Phone"></dxi-column>
+            </dx-data-grid>
           </div>
-        </div>
-        <div class="col-md-12">
-          <dx-data-grid id="gridContainer" [dataSource]="address" [allowColumnReordering]="true" [allowColumnResizing]="true" [columnAutoWidth]="true">
-            <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
-            <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
-            <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
-            </dxo-editing>
-            <dxi-column dataField="Company Name"></dxi-column>
-            <dxi-column dataField="CountryName"></dxi-column>
-            <dxi-column dataField="City"></dxi-column>
-            <dxi-column dataField="State"></dxi-column>
-            <dxi-column dataField="Phone"></dxi-column>
-          </dx-data-grid>
         </div>
       </div>
     </div>
-  </div>
-</dx-popup>
+  </dx-popup>
