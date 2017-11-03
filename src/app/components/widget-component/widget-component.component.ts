@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
+         DxFormComponent , DxSelectBoxModule , DxDataGridModule} from 'devextreme-angular';
 import { WidgetService } from '../../services/widget.service';
 import  DataSource  from 'devextreme/data/data_source';
 
@@ -15,6 +18,7 @@ export class WidgetComponentComponent implements OnInit {
 	dataSource: any;
 	data: any;
 	@Input() type: any;
+  @Input() event: any;
   widgetInfo:any;
   WidgetHolderName:String;
   WidgetProperties:any;
@@ -29,8 +33,12 @@ export class WidgetComponentComponent implements OnInit {
   IATA_Agent_Code:any;
   CASS_Code:any;
   city:any;
+  isVisible: boolean = false;
+  AddressBookDetails=[];
+  address=[];
+  columns=[];
+  newVar:any;
 
- 
 
 
 
@@ -39,14 +47,15 @@ export class WidgetComponentComponent implements OnInit {
   ngOnInit() {
     
 		this.widgetService.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
+      
       this.widgetData = data && JSON.parse(data);
       this.widgetInfo = this.widgetData[this.type];
-
       this.WidgetHolderName = this.widgetInfo.Name;
       this.WidgetProperties=this.widgetInfo.Properties;
-
       this.infoProperty=this.WidgetProperties[0];
-
+      this.newVar  = this.WidgetProperties[0].Address;
+      this.columns=Object.keys(this.newVar);  
+      this.getAddressarr(this.WidgetProperties);
       this.IATA_Agent_Code = this.infoProperty.IATA_Agent_Code;
       this.CASS_Code = this.infoProperty.CASS_Code;
       this.shipperName=this.infoProperty.Name;
@@ -54,12 +63,17 @@ export class WidgetComponentComponent implements OnInit {
       this.shipperAddress=this.infoProperty.Address;
       this.city = this.shipperAddress.City;
       this.displayAddress=this.getAddress().complieAddress;
-
-
-     
-
     });
   }
+
+  getAddressarr(abcd):any{
+    for (let i = 0; i < this.WidgetProperties.length; i++) { 
+     this.address.push(this.WidgetProperties[i].Address);
+    }
+  return this.address; 
+  };
+
+  
 
   getAddress():any{
 
@@ -69,6 +83,11 @@ export class WidgetComponentComponent implements OnInit {
     " "+ "  Tax ID Name:" +this.infoProperty.Tax_ID_Name;
 
     return this.complieAddress; 
+  }
+
+    openAddressBook() {
+    console.log('i am clicked');
+    this.isVisible = true;
   }
 
 }

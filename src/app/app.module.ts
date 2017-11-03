@@ -14,7 +14,7 @@ import { DxTextBoxModule,
   DxListModule,DxBoxModule,
   DxTemplateModule,
   DxPopupModule,
-  DxFormModule,
+  DxFormModule,DxDataGridModule,
   DxButtonModule,DxFormComponent} from 'devextreme-angular';
 import { ProductService } from './services/product.service';
 import { WidgetService } from './services/widget.service';
@@ -57,6 +57,7 @@ const  appRoutes:Routes = [
     DxBoxModule,
     DxPopupModule,
     FormsModule,
+    DxDataGridModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService,WidgetService],

@@ -7,3 +7,6 @@
 .addBtn{
 	padding:12px;
 }
+.custom-popup .dx-popup-title .dx-toolbar {
+  background-color:coral !important;
+}
