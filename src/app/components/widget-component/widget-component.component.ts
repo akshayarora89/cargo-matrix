@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
          DxFormComponent , DxSelectBoxModule , DxDataGridModule} from 'devextreme-angular';
@@ -18,7 +18,7 @@ export class WidgetComponentComponent implements OnInit {
 	dataSource: any;
 	data: any;
 	@Input() type: any;
-  @Input() event: any;
+  @Output() onShowContactList: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   widgetInfo:any;
   WidgetHolderName:String;
   WidgetProperties:any;
@@ -68,9 +68,9 @@ export class WidgetComponentComponent implements OnInit {
 
   getAddressarr(abcd):any{
     for (let i = 0; i < this.WidgetProperties.length; i++) { 
-     this.address.push(this.WidgetProperties[i].Address);
+      this.address.push(this.WidgetProperties[i].Address);
     }
-  return this.address; 
+    return this.address; 
   };
 
   
@@ -84,10 +84,8 @@ export class WidgetComponentComponent implements OnInit {
 
     return this.complieAddress; 
   }
-
-    openAddressBook() {
+  openAddressBook() {
     console.log('i am clicked');
     this.isVisible = true;
   }
-
 }
