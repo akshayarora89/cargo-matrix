@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { ContactdisplayWidgetComponent } from '../contactdisplay-widget/contactdisplay-widget.component';
+/*import { WidgetComponentComponent } from '../widget-component/widget-component.component';
+*/
 
 @Component({
   selector: 'app-shipping-widget-display-component',

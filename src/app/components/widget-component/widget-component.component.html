@@ -19,8 +19,7 @@
             </div>
           </div>
           <div class="col-md-2 topSpace">
-            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" 
-            (click)="openAddressBook($event)">
+            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" (click)="openAddressBook($event)">
             </dx-button>
             <dx-button text="+" class="buttonStyle addBtn">
             </dx-button>
@@ -51,8 +50,7 @@
             </div>
           </div>
           <div class="col-md-2 topSpace">
-            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg"  
-            (click)="openAddressBook($event)">
+            <dx-button class="buttonStyle spaceOut" icon="assets/images/addressBook_01.jpg" (click)="openAddressBook($event)">
             </dx-button>
             <dx-button text="+" class="buttonStyle addBtn">
             </dx-button>
@@ -125,9 +123,7 @@
     </div>
   </div>
 </div>
-
 <!--Address Book Popup -->
-
 <dx-popup #MyPopup show-title="true" title="Address Book" [visible]="isVisible">
   <div *dxTemplate="let data of 'content'" id="myPopup" class="custom-popup">
     <div class="container">
@@ -138,10 +134,6 @@
               <div class="panel-body" style="padding:9px;">Drag a coloumn header here to group by that coloumn</div>
             </div>
           </div>
-       <!--    <div class="col-md-1">
-            <dx-button text="+" class="buttonStyle" style="padding:3px;">
-            </dx-button>
-          </div> -->
           <div class="col-md-3">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -149,35 +141,19 @@
             </div>
           </div>
         </div>
-
-   <div class="col-md-12">
-    <dx-data-grid
-    id="gridContainer"
-    [dataSource]="address"
-    [allowColumnReordering]="true"
-    [allowColumnResizing]="true"
-    [columnAutoWidth]="true">
-    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
-    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
-    <dxo-editing 
-         mode="row"
-         [allowUpdating]="true"
-         [allowDeleting]="true"
-         [allowAdding]="true">
-    </dxo-editing>
-    <dxi-column dataField="Company Name"></dxi-column>
-    <dxi-column dataField="CountryName"></dxi-column>
-    <dxi-column dataField="City"></dxi-column>
-    <dxi-column dataField="State"></dxi-column>
-    <dxi-column dataField="Phone"></dxi-column>
-    </dx-data-grid>
-
-<!--      <dx-data-grid
-    id="gridContainer"
-    [dataSource]="address"></dx-data-grid> -->
-
-    </div> 
-
+        <div class="col-md-12">
+          <dx-data-grid id="gridContainer" [dataSource]="address" [allowColumnReordering]="true" [allowColumnResizing]="true" [columnAutoWidth]="true">
+            <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+            <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+            <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+            </dxo-editing>
+            <dxi-column dataField="Company Name"></dxi-column>
+            <dxi-column dataField="CountryName"></dxi-column>
+            <dxi-column dataField="City"></dxi-column>
+            <dxi-column dataField="State"></dxi-column>
+            <dxi-column dataField="Phone"></dxi-column>
+          </dx-data-grid>
+        </div>
       </div>
     </div>
   </div>
