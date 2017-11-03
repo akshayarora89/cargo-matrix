@@ -15,8 +15,4 @@ export class ShippingWidgetDisplayComponentComponent implements OnInit {
 
   }
 
-  showContactList(event: any) {
-    console.log("properties>>>>", event);
-  }
-
 }
