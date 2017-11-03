@@ -83,21 +83,19 @@
         <div class="row">
           <div class="col-md-12">
             <div class="col-md-9"></div>
-            <div class="col-md-1"> 
-            <dx-button text="+" class="buttonStyle newAdd">
-            </dx-button></div>
+            <div class="col-md-1"></div>
             <div class="col-md-2">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input id="search" type="text" class="form-control" name="search" placeholder="search ..">
-              </div>
+            <!-- <dx-button class="buttonStyle newAdd" icon="assets/images/addbutton.png">
+            </dx-button> -->
             </div>
           </div>
           <div class="col-md-12">
+           <dx-button class="buttonStyle newAdd" icon="assets/images/addbutton.png">
+            </dx-button>
             <dx-data-grid id="gridContainer" [dataSource]="address" [allowColumnReordering]="true" [allowColumnResizing]="true" [columnAutoWidth]="true">
               <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
               <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
-              
+
               <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true">
               </dxo-editing>
 
@@ -105,6 +103,9 @@
               <dxi-column [allowHeaderFiltering]="false"></dxi-column>
               <dxo-filter-row [visible]="true"></dxo-filter-row>
               <dxi-column [allowFiltering]="false"></dxi-column>
+
+               <dxo-search-panel [visible]="true"></dxo-search-panel>
+              <dxi-column [allowSearch]="false"></dxi-column>
 
               <dxi-column dataField="CompanyName"></dxi-column>
               <dxi-column dataField="CountryName" *ngIf="type !== 'Carrier Agent'"></dxi-column>
