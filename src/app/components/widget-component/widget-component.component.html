@@ -76,6 +76,7 @@
 
 
   <!--Address Book Popup -->
+
   <dx-popup #MyPopup show-title="true" title="Address Book" [visible]="isVisible">
     <div *dxTemplate="let data of 'content'" id="myPopup" class="custom-popup">
       <div class="container">
@@ -96,8 +97,15 @@
             <dx-data-grid id="gridContainer" [dataSource]="address" [allowColumnReordering]="true" [allowColumnResizing]="true" [columnAutoWidth]="true">
               <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
               <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+              
               <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true">
               </dxo-editing>
+
+              <dxo-header-filter [visible]="true"></dxo-header-filter>
+              <dxi-column [allowHeaderFiltering]="false"></dxi-column>
+              <dxo-filter-row [visible]="true"></dxo-filter-row>
+              <dxi-column [allowFiltering]="false"></dxi-column>
+
               <dxi-column dataField="CompanyName"></dxi-column>
               <dxi-column dataField="CountryName" *ngIf="type !== 'Carrier Agent'"></dxi-column>
               <dxi-column dataField="City"></dxi-column>
