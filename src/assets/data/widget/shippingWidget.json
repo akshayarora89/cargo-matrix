@@ -21,7 +21,7 @@
         "Fax": "NULL"
       },
       "Tax_ID_Name": "NULL",
-      "Tax ID Refrence": "NULL"
+      "Tax_ID_Refrence": "NULL"
     },
     {
       "Header": "Shipper & Consignee’s Name and Address",
@@ -39,7 +39,7 @@
         "Fax": "NULL"
       },
       "Tax_ID_Name": "NULL",
-      "Tax ID Refrence": "NULL"
+      "Tax_ID_Refrence": "NULL"
     }]
   },
   "Carrier Agent":

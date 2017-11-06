@@ -14,7 +14,7 @@ import { DxTextBoxModule,
   DxListModule,DxBoxModule,
   DxTemplateModule,
   DxPopupModule,
-  DxFormModule,DxDataGridModule,
+  DxFormModule,DxDataGridModule,DxPopoverModule,
   DxButtonModule,DxFormComponent} from 'devextreme-angular';
 import { ProductService } from './services/product.service';
 import { WidgetService } from './services/widget.service';

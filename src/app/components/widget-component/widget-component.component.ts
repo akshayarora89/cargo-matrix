@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
-         DxFormComponent , DxSelectBoxModule , DxDataGridModule} from 'devextreme-angular';
+         DxFormComponent , DxSelectBoxModule , DxDataGridModule,DxPopoverModule} from 'devextreme-angular';
 import { WidgetService } from '../../services/widget.service';
 import  DataSource  from 'devextreme/data/data_source';
 
@@ -16,9 +16,11 @@ export class WidgetComponentComponent implements OnInit {
 
 	widgetData:any;
 	dataSource: any;
+  isVisible: boolean = false;
+  isVisibility : boolean = false;
 	data: any;
 	@Input() type: any;
-  WidgetHolderName:String;
+  @Input() event: any;
   widgetInfo:any = {
     Name: ""
   };
@@ -36,11 +38,27 @@ export class WidgetComponentComponent implements OnInit {
   };
   complieAddress:any;
   displayAddress:any;
-  isVisible: boolean = false;
+
   AddressBookDetails=[];
   address=[];
   columns=[];
   newVar:any;
+
+
+  Header: "Shipper & Consignee’s Name and Address";
+  Name: string = "";
+  Account_no: string = "";
+  StreetAddress: string = "";
+  CountryName: string = "";
+  CountryCode: string = "";
+  City: string = "";
+  StateName: string = "";
+  PostalCode: string = "";
+  Phone: string = "";
+  TaxIDName: string = "";
+  TaxIdReference: string = "";
+ 
+
 
 
   constructor(private widgetService: WidgetService) {}
@@ -66,7 +84,7 @@ export class WidgetComponentComponent implements OnInit {
      this.address.push(this.WidgetProperties[i].Address);
      this.address[i].CompanyName=this.WidgetProperties[i].Name;
     }
-    return this.address; 
+  return this.address; 
   };
 
   getAddress():any{
@@ -78,8 +96,39 @@ export class WidgetComponentComponent implements OnInit {
 
     return this.complieAddress; 
   }
-  openAddressBook() {
-    console.log('i am clicked');
+
+    openAddressBook() {
     this.isVisible = true;
+    console.log('i am clicked');
   }
+
+  addNewShipper(){
+    this.isVisibility = true;
+    console.log('adding new shipper and consignee');
+  }
+  saveNewDetails(){
+    console.log('i am clicked to save new data');
+     let newShipperConsignee = {
+
+        Header:this.Header,
+        Name:this.Name,
+        Account_no:this.Account_no,
+        StreetAddress: this.StreetAddress,
+        CountryName: this.CountryName,
+        CountryCode: this.CountryCode,
+        City:this.City,
+        StateName: this.StateName,
+        PostalCode: this.PostalCode,
+        Phone: this.Phone,
+        Tax_ID_Name: this.TaxIDName,
+        Tax_ID_Refrence: this.TaxIdReference
+        
+    }
+    this.widgetService.addnewShipperConsignee(newShipperConsignee);
+    //this.setDataSource();
+  }
+  cancelNewDetailAddition(){
+    console.log('cancel - it i dont want to add any new details');
+  }
+
 }
