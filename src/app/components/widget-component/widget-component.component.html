@@ -27,9 +27,8 @@
              (click)="openAddressBook($event)">
             </dx-button>
 
-
-
-            <dx-button class="buttonStyle addBtn" icon="assets/images/addbutton.png" >
+            <dx-button class="buttonStyle addBtn" icon="assets/images/addbutton.png" 
+            (click)="addNewShipper($event)">
             </dx-button>
           </div>
         </div>
@@ -94,13 +93,13 @@
       <div class="row">
         
         <div class="col-md-12">
-          <dx-button class="buttonStyle newAdd" icon="assets/images/addbutton.png"></dx-button>
+          <dx-button class="buttonStyle newAdd" icon="assets/images/addbutton.png" (click)="addNewShipper($event)">
+          </dx-button>
           <dx-data-grid id="gridContainer" 
           [dataSource]="address" 
           [allowColumnReordering]="true" 
           [allowColumnResizing]="true" 
           [columnAutoWidth]="true">
-
           <dxo-header-filter [visible]="true"></dxo-header-filter>
           <dxo-filter-row [visible]="true"></dxo-filter-row>
           <dxo-search-panel [visible]="true"></dxo-search-panel>
@@ -111,6 +110,49 @@
           <dxi-column dataField="Phone"></dxi-column>
           </dx-data-grid>
         </div>
+
+      </div>
+    </div>
+  </div>
+</dx-popup>
+
+<!-- Add new Shipper or Consignee -->
+
+ <dx-popup #MyPopup2
+ class="popup"
+        [showTitle]="true"
+        title="Add New <@Type of Contact (e.g., Shipper, Consignee, etc.) >"
+        [dragEnabled]="false"
+        [closeOnOutsideClick]="true"
+        [(visible)]="isVisibility">
+  <div *dxTemplate="let data of 'content'" id="myPopup2">
+    <div class="container">
+      <div class="row">
+        
+        <div id="form-container">
+        <dx-form id="form" [colCount]="2" [formData]="widgetData">
+
+        <dxi-item dataField="Account_no"  name="account" [(ngModel)] = "Account_no"></dxi-item>
+        <dxi-item dataField="Name"  name="name" [(ngModel)] = "Name"></dxi-item>
+        <dxi-item dataField="StreetAddress"  name="street" [(ngModel)] = "StreetAddress"></dxi-item>       
+        <dxi-item dataField="CountryName"  name="country" [(ngModel)] = "CountryName"></dxi-item>
+        <dxi-item dataField="City"  name="cty" [(ngModel)] = "City"></dxi-item>
+        <dxi-item dataField="PostalCode"  name="postal" [(ngModel)] = "PostalCode"></dxi-item>
+        <dxi-item dataField="ContactName"  name="contact" [(ngModel)] = "ContactName"></dxi-item>
+        <dxi-item dataField="PhoneNumber"  name="ph" [(ngModel)] = "PhoneNumber"></dxi-item>
+        <dxi-item dataField="TaxIdName"  name="taxid" [(ngModel)] = "TaxIdName"></dxi-item>
+        <dxi-item dataField="TaxIdReference"  name="taxref" [(ngModel)] = "TaxIdReference"></dxi-item>
+
+        </dx-form>
+
+        <br/><br/>
+
+        <div class="col-md-12 alignment">
+        <dx-button text="Save" type="success" (click)="saveNewDetails($event)"></dx-button>
+        <dx-button text="Cancel" type="default" (click)="cancelNewDetailAddition($event)"></dx-button>
+        </div>
+        </div>
+        
       </div>
     </div>
   </div>

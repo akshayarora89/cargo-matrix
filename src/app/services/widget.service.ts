@@ -19,4 +19,19 @@ export class WidgetService {
   getData(): any {
     return this.widgetData;
   }
+  
+    addnewShipperConsignee(newShipperConsignee: any) {
+       console.log('newShipperConsignee >>',newShipperConsignee);
+
+ /*   let lastShipperConsignee = this.widgetData && this.widgetData.length ? this.widgetData[this.widgetData.length-1] : null;
+    if(typeof(newShipperConsignee) == 'object' && !Array.isArray(newShipperConsignee)) {
+      if(lastShipperConsignee.Properties)
+        newShipperConsignee.id = lastShipperConsignee.id + 1;
+      else
+        newShipperConsignee.id = 1;  
+      this.widgetData.push(newShipperConsignee);
+      console.log('newShipperConsignee >>',newShipperConsignee);
+    }*/
+  }
 }
+ 

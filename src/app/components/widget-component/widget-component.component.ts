@@ -17,6 +17,7 @@ export class WidgetComponentComponent implements OnInit {
 	widgetData:any;
 	dataSource: any;
   isVisible: boolean = false;
+  isVisibility : boolean = false;
 	data: any;
 	@Input() type: any;
   @Input() event: any;
@@ -42,6 +43,22 @@ export class WidgetComponentComponent implements OnInit {
   address=[];
   columns=[];
   newVar:any;
+
+
+  Header: "Shipper & Consignee’s Name and Address";
+  Name: string = "";
+  Account_no: string = "";
+  StreetAddress: string = "";
+  CountryName: string = "";
+  CountryCode: string = "";
+  City: string = "";
+  StateName: string = "";
+  PostalCode: string = "";
+  Phone: string = "";
+  TaxIDName: string = "";
+  TaxIdReference: string = "";
+ 
+
 
 
   constructor(private widgetService: WidgetService) {}
@@ -83,6 +100,35 @@ export class WidgetComponentComponent implements OnInit {
     openAddressBook() {
     this.isVisible = true;
     console.log('i am clicked');
+  }
+
+  addNewShipper(){
+    this.isVisibility = true;
+    console.log('adding new shipper and consignee');
+  }
+  saveNewDetails(){
+    console.log('i am clicked to save new data');
+     let newShipperConsignee = {
+
+        Header:this.Header,
+        Name:this.Name,
+        Account_no:this.Account_no,
+        StreetAddress: this.StreetAddress,
+        CountryName: this.CountryName,
+        CountryCode: this.CountryCode,
+        City:this.City,
+        StateName: this.StateName,
+        PostalCode: this.PostalCode,
+        Phone: this.Phone,
+        Tax_ID_Name: this.TaxIDName,
+        Tax_ID_Refrence: this.TaxIdReference
+        
+    }
+    this.widgetService.addnewShipperConsignee(newShipperConsignee);
+    //this.setDataSource();
+  }
+  cancelNewDetailAddition(){
+    console.log('cancel - it i dont want to add any new details');
   }
 
 }
