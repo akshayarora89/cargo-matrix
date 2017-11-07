@@ -17,21 +17,13 @@ export class WidgetService {
       .map(widgetData => widgetData.text());
   }
   getData(): any {
+    console.log("data>>>>", this.widgetData);
     return this.widgetData;
   }
-  
-    addnewShipperConsignee(newShipperConsignee: any) {
-       console.log('newShipperConsignee >>',newShipperConsignee);
 
- /*   let lastShipperConsignee = this.widgetData && this.widgetData.length ? this.widgetData[this.widgetData.length-1] : null;
-    if(typeof(newShipperConsignee) == 'object' && !Array.isArray(newShipperConsignee)) {
-      if(lastShipperConsignee.Properties)
-        newShipperConsignee.id = lastShipperConsignee.id + 1;
-      else
-        newShipperConsignee.id = 1;  
-      this.widgetData.push(newShipperConsignee);
-      console.log('newShipperConsignee >>',newShipperConsignee);
-    }*/
+  addContact(newContact: any, type: string) {
+    if(this.widgetData[type] && this.widgetData[type].Properties)
+      this.widgetData[type].Properties.push(newContact);
   }
 }
  

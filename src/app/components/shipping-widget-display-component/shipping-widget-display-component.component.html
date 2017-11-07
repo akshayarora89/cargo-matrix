@@ -1,5 +1,61 @@
-<!-- <app-contactdisplay-widget type="'Shipper & Consignee'"></app-contactdisplay-widget>
- -->
-<app-widget-component [type]="'Shipper'"></app-widget-component>
-<app-widget-component [type]="'Carrier'"></app-widget-component>
-<app-widget-component [type]="'Carrier Agent'"></app-widget-component>
+<app-widget-component [type]="'Shipper'" (openAddressBook)="openAddressBookPopup($event)" (openAddMemberPopup)="openAddContactPopup($event)"></app-widget-component>
+<app-widget-component [type]="'Carrier'" (openAddressBook)="openAddressBookPopup($event)" (openAddMemberPopup)="openAddContactPopup($event)"></app-widget-component>
+<app-widget-component [type]="'Carrier Agent'" (openAddressBook)="openAddressBookPopup($event)" (openAddMemberPopup)="openAddContactPopup($event)"></app-widget-component>
+<dx-popup #MyPopup class="popup" [showTitle]="true" title="Address Book" [dragEnabled]="false" [closeOnOutsideClick]="true" [(visible)]="isAddressBookPopupVisible">
+  <div *dxTemplate="let data of 'content'" id="myPopup">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <dx-button class="buttonStyle newAdd" icon="assets/images/addbutton.png" (click)="openAddContactPopup({type:selectedType})">
+          </dx-button>
+          <dx-data-grid id="gridContainer" [dataSource]="selectedWidgetInfo.Properties" [allowColumnReordering]="true" [allowColumnResizing]="true" [columnAutoWidth]="true">
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-search-panel [visible]="true"></dxo-search-panel>
+            <dxi-column dataField="Name"></dxi-column>
+            <dxi-column dataField="Country" *ngIf="selectedType !== 'Carrier Agent'"></dxi-column>
+            <dxi-column dataField="City"></dxi-column>
+            <dxi-column dataField="State"></dxi-column>
+            <dxi-column dataField="Phone"></dxi-column>
+          </dx-data-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</dx-popup>
+<dx-popup #MyPopup2 class="popup" [showTitle]="true" title="Add New {{selectedType}}" [dragEnabled]="false" [closeOnOutsideClick]="true" [(visible)]="isAddContactPopupVisible">
+  <div *dxTemplate="let data of 'content'" id="myPopup2">
+    <div class="container">
+      <div class="row">
+        <div id="form-container">
+          <form (submit)="saveNewDetails($event)">
+            <dx-form id="form" [formData]="newContact" [readOnly]="false" [showColonAfterLabel]="true" [showValidationSummary]="true" [colCount]="2" validationGroup="contactData">
+              <dxi-item dataField="Name">
+                <dxi-validation-rule type="required" message="Name is required">
+                </dxi-validation-rule>
+              </dxi-item>
+              <dxi-item dataField="Account_no"></dxi-item>
+              <dxi-item dataField="Address"></dxi-item>
+              <dxi-item dataField="Country"></dxi-item>
+              <dxi-item dataField="City"></dxi-item>
+              <dxi-item dataField="State"></dxi-item>
+              <dxi-item dataField="PostalCode"></dxi-item>
+              <dxi-item dataField="Phone"></dxi-item>
+              <dxi-item dataField="Fax"></dxi-item>
+              <dxi-item *ngIf="selectedType === 'Shipper'" dataField="Tax_ID_Name"></dxi-item>
+              <dxi-item *ngIf="selectedType === 'Shipper'" dataField="Tax_ID_Reference"></dxi-item>
+              <dxi-item *ngIf="selectedType === 'Carrier Agent'" dataField="IATA_Agent_Code"></dxi-item>
+              <dxi-item *ngIf="selectedType === 'Carrier Agent'" dataField="CASS_Code"></dxi-item>
+            </dx-form>
+            <div class="col-md-12 alignment">
+              <dx-button text="Save" type="success" validationGroup="contactData" [useSubmitBehavior]="true">
+              </dx-button>
+            </div>
+          </form>
+          <br/>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+</dx-popup>
