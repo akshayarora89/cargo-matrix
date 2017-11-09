@@ -68,4 +68,31 @@ export class ShippingWidgetDisplayComponentComponent implements OnInit {
   	this.widgetService.addContact(Object.assign({},this.newContact), this.selectedType);
 		this.isAddContactPopupVisible = false;
   }
+
+  cancelSaveNewDetails(event){
+    this.isAddContactPopupVisible = false;
+  }
+  onCellPrepared(e) {
+      if (e.rowType === "data" && e.column.command === "edit") {
+          var isEditing = e.row.isEditing,
+              $links = e.cellElement.find(".dx-link");
+
+          $links.text("");
+
+          if (isEditing) {
+              $links.filter(".dx-link-save").addClass("dx-icon-save");
+              $links.filter(".dx-link-cancel").addClass("dx-icon-revert");
+          } else {
+              $links.filter(".dx-link-edit").addClass("dx-icon-edit");
+              $links.filter(".dx-link-delete").addClass("dx-icon-trash");
+          }
+      }
+  }
+
+  onContentReady(e) {
+     e.component.columnOption("command:edit", {
+        visibleIndex: 1,
+        width: 80
+    });
+  }
 }
