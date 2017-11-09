@@ -5,10 +5,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class WidgetService {
 
-	widgetData: any = {};
+  widgetData: any = {};
 
   constructor(private http: Http) { 
-  	this.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
+    this.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
       this.widgetData = data && JSON.parse(data);
     });
   }
@@ -26,4 +26,3 @@ export class WidgetService {
       this.widgetData[type].Properties.push(newContact);
   }
 }
- 

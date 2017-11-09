@@ -6,7 +6,6 @@ import  DataSource  from 'devextreme/data/data_source';
 
 @Component({
   selector: 'app-shipping-widget-display-component',
-  templateUrl: './shipping-widget-display-component.component.html',
   styleUrls: ['./shipping-widget-display-component.component.css']
 })
 export class ShippingWidgetDisplayComponentComponent implements OnInit {
