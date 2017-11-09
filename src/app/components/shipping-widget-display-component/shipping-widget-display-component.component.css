@@ -1,0 +1,48 @@
+.topSpace {
+  margin-top: 20px;
+}
+
+.spaceOut {
+  padding: 10px;
+}
+
+.addBtn {
+  padding: 10px;
+}
+
+.custom-popup .dx-popup-title .dx-toolbar {
+  background-color: coral !important;
+}
+
+.newAdd {
+  position: absolute;
+  z-index: 2;
+  right: 185px;
+  margin-bottom: 14px;
+  margin-left: 1101px;
+}
+
+.alignment {
+  text-align: center;
+}
+.random .dx-field-item-label-content {
+  text-align: right !important;
+}
+
+.buttonColorOne{
+  background-color:#ff9a53;
+  color:white;
+}
+.buttonColorTwo{
+  background-color:#b0b0b0;
+  color:white;
+}
+.scale{
+  border-top:1px solid #D8D6D5;
+  border-bottom:1px solid #D8D6D5;
+}
+.devButton{
+  margin-top:10px; 
+  margin-bottom:10px; 
+  float:right;
+}
