@@ -21,7 +21,6 @@
   margin-bottom: 14px;
   margin-left: 1101px;
 }
-
 .alignment {
   text-align: center;
 }
@@ -45,4 +44,17 @@
   margin-top:10px; 
   margin-bottom:10px; 
   float:right;
+}
+.flex-container {
+	display: flex;
+	justify-content: center;
+}
+.widgetsContainer {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+app-widget-component {
+	width: 50%;
 }

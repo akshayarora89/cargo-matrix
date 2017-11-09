@@ -1,11 +1,12 @@
-.topSpace{
+.mt-20{
 	margin-top:20px;
 }
-.spaceOut{
-	padding: 10px;
+.mb-5 {
+	margin-bottom: 5px;
 }
-.addBtn{
-	padding:10px;
+.px-0 {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 .custom-popup .dx-popup-title .dx-toolbar {
   background-color:coral !important;
@@ -17,4 +18,25 @@
 }
 .alignment{
 	text-align:center;
+}
+.bold-wrapper {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.widget-wrapper {
+	border: 2px solid #eee;
+}
+.widget-panel {
+  margin: 0px;
+  border-radius: 2px;
+  border: 2px solid #B2BFD7;
+}
+.widget-panel .panel-body {
+	padding: 7px;
+	min-height: 36px;
+}
+.taxDetails p {
+	float: left;
+	width: 50%;
 }

@@ -17,3 +17,15 @@
   font-size: 16px !important;
   padding: 3px !important;
 }
+
+.widget-btn {
+	border: none;
+}
+.widget-btn .dx-button-content{
+	padding: 0px !important;
+}
+
+.widget-btn .dx-icon {
+	width: 36px;
+	height: 36px;
+}
