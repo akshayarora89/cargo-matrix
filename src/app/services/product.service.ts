@@ -79,7 +79,6 @@ export class ProductService {
   }
 
   getSelectedProcess(): any {
-    console.log('selectedProcess >>>> from service',this.selectedProcess);
     return this.selectedProcess;
   }
 
