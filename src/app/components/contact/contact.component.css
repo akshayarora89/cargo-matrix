@@ -1,25 +1,5 @@
-.topSpace {
-  margin-top: 20px;
-}
-
-.spaceOut {
-  padding: 10px;
-}
-
-.addBtn {
-  padding: 10px;
-}
-
 .custom-popup .dx-popup-title .dx-toolbar {
   background-color: coral !important;
-}
-
-.newAdd {
-  position: absolute;
-  z-index: 2;
-  right: 185px;
-  margin-bottom: 14px;
-  margin-left: 1101px;
 }
 .alignment {
   text-align: center;
@@ -28,11 +8,11 @@
   text-align: right !important;
 }
 
-.buttonColorOne{
+.btn1-color{
   background-color:#ff9a53;
   color:white;
 }
-.buttonColorTwo{
+.btn2-color{
   background-color:#b0b0b0;
   color:white;
 }
@@ -40,21 +20,30 @@
   border-top:1px solid #D8D6D5;
   border-bottom:1px solid #D8D6D5;
 }
-.devButton{
+.dev-btn{
   margin-top:10px; 
   margin-bottom:10px; 
   float:right;
 }
 .flex-container {
-	display: flex;
+	display: block;
 	justify-content: center;
 }
-.widgetsContainer {
+.widgets-container {
 	width: 100%;
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 }
-app-widget-component {
+shipment-component {
 	width: 50%;
+}
+
+/*Media Queries*/
+
+@media screen and (max-width: 768px)
+{
+  shipment-component {
+    width: 100%;
+  }  
 }

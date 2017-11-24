@@ -1,14 +1,14 @@
-{
-  "Shipper":
+[
   {
     "Key": "01",
+    "name":"Shipper",
     "WholderID": "W01",
     "Name": "Shipper & Consignee’s Name and Address",
     "Properties": [
     {
       "Header": "Shipper & Consignee’s Name and Address",
       "Name": "TRADITION A-S",
-      "Account_no": "",
+      "Account_no": "44333",
       "Address": "KONGEVEJEN 2",
       "Country": "Denmark",
       "City": "FREDENSBORG",
@@ -22,7 +22,7 @@
     {
       "Header": "Shipper & Consignee’s Name and Address",
       "Name": "JINDAL FILMS AMERICAS",
-      "Account_no": "",
+      "Account_no": "2345454",
       "Address": "411 PEGASUS PARKWAY LAGRANGE",
       "Country": "United States of America",
       "City": "CHICAGO",
@@ -34,16 +34,16 @@
       "Tax_ID_Refrence": ""
     }]
   },
-  "Carrier Agent":
   {
     "Key": "02",
+    "name":"Carrier",
     "WholderID": "W02",
     "Name": "Issuing Carrier’s Agent Name",
     "Properties": [
     {
       "Header": "Issuing Carrier’s Agent Name",
       "Name": "KUEHNE AND NAGEL IRELAND LTD",
-      "Account_no": "",
+      "Account_no": "45321",
       "Address": "",
       "Country": "",
       "City": "CO. CLARE",
@@ -57,7 +57,7 @@
     {
       "Header": "Issuing Carrier’s Agent Name",
       "Name": "QCS QUICK CARGO SERVICES B.V.",
-      "Account_no": "",
+      "Account_no": "33222",
       "Address": "",
       "Country": "",
       "City": "SCHIPHOL",
@@ -69,16 +69,16 @@
       "CASS_Code": ""
     }]
   },
-  "Carrier":
   {
     "Key": "03",
+    "name":"CarrierAgent",
     "WholderID": "W03",
     "Name": "Issuing Carrier’s Name & Address",
     "Properties": [
     {
       "Header": "Issuing Carrier’s Name & Address",
       "Name": "AMERICAN AIRLINES",
-      "Account_no": "",
+      "Account_no": "222224",
       "Address": "3400 INNER LOOP ROAD  SUI",
       "Country": "US",
       "City": "ATLANTA",
@@ -92,7 +92,7 @@
     {
       "Header": "Issuing Carrier’s Name & Address",
       "Name": "CONTINENTAL AIRLINES",
-      "Account_no": "",
+      "Account_no": "22443",
       "Address": "3400 N INNER LOOP RD",
       "Country": "US",
       "City": "HAPEVILLE",
@@ -104,4 +104,4 @@
       "ContactName":"JIM CRONIN"
     }]
   }
-}
+]

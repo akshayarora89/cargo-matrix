@@ -1,0 +1,82 @@
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.custom-popup .dx-popup-title .dx-toolbar {
+  background-color: coral !important;
+}
+
+.alignment {
+  text-align: center;
+}
+
+.bold-wrapper {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.tab-display {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  vertical-align: middle;
+  margin-top: 4px;
+}
+
+.btn-display {
+  float: right;
+}
+
+.display-widget {
+  padding: 10px;
+}
+
+.widget-wrapper {
+  border: 2px solid #eee;
+}
+
+.widget-panel {
+  margin: 0px;
+  border-radius: 2px;
+  border: 2px solid #B2BFD7;
+}
+
+.widget-panel .panel-body {
+  padding: 7px;
+  min-height: 36px;
+}
+
+.panel-body label {
+  min-height: 42px;
+}
+
+.tab-content {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding-left: 20px;
+  color: #333;
+  line-height: 0.8;
+  margin-top: 10px;
+}
+
+.tab-space {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .smallScreen div {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

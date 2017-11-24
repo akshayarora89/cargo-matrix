@@ -13,24 +13,21 @@ import {Location} from '@angular/common';
 import { DxTextBoxModule, 
   DxListModule,DxBoxModule,
   DxTemplateModule,
-  DxPopupModule,
+  DxPopupModule,DxTooltipModule,
   DxFormModule,DxDataGridModule,DxPopoverModule,
   DxButtonModule,DxFormComponent} from 'devextreme-angular';
+
 import { ProductService } from './services/product.service';
 import { WidgetService } from './services/widget.service';
-import { MopProcessesComponent } from './components/mop-processes/mop-processes.component';
-import { SubProcessMopsComponent } from './components/sub-process-mops/sub-process-mops.component';
-import { MopSubsystemComponent } from './components/mop-subsystem/mop-subsystem.component';
-import { ShippingWidgetDisplayComponentComponent } from './components/shipping-widget-display-component/shipping-widget-display-component.component';
-import { WidgetComponentComponent } from './components/widget-component/widget-component.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { shipmentComponent } from './components/shipment/shipment.component';
 
 const  appRoutes:Routes = [
+
   {path:'',component:HomeComponent},
   {path:'mops',component:MopsComponent},
-  {path:'mop_processes',component:MopProcessesComponent},
-  {path:'mop_SubProcesses',component:SubProcessMopsComponent},
-  {path:'mop_SubSystem',component:MopSubsystemComponent},
-  {path:'shippingContactDisplayWidget',component:ShippingWidgetDisplayComponentComponent}
+  {path:'contact',component:ContactComponent}
+
 ];
 
 @NgModule({
@@ -40,11 +37,8 @@ const  appRoutes:Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    MopProcessesComponent,
-    SubProcessMopsComponent,
-    MopSubsystemComponent,
-    ShippingWidgetDisplayComponentComponent,
-    WidgetComponentComponent
+    ContactComponent,
+    shipmentComponent
   ],
   imports: [
     BrowserModule,
@@ -58,11 +52,12 @@ const  appRoutes:Routes = [
     DxPopupModule,
     FormsModule,
     DxDataGridModule,
+    DxTooltipModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService,WidgetService],
   exports: [
-    WidgetComponentComponent
+    shipmentComponent
   ],
   bootstrap: [AppComponent]
 })

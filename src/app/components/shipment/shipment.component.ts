@@ -2,15 +2,15 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { WidgetService } from '../../services/widget.service';
 
 @Component({
-  selector: 'app-widget-component',
-  templateUrl: './widget-component.component.html',
-  styleUrls: ['./widget-component.component.css']
+  selector: 'shipment-component',
+  templateUrl: './shipment.component.html',
+  styleUrls: ['./shipment.component.css']
 })
-export class WidgetComponentComponent implements OnInit {
+export class shipmentComponent implements OnInit {
 
 
 	widgetData:any;
-	@Input() type: any;
+	@Input() data: any;
   @Output() openAddressBook: EventEmitter<any> = new EventEmitter();
   @Output() openAddMemberPopup: EventEmitter<any> = new EventEmitter();
   widgetInfo:any = {
@@ -32,22 +32,19 @@ export class WidgetComponentComponent implements OnInit {
     Tax_ID_Refrence: "",
     IATA_Agent_Code: "",
     CASS_Code: ""
-  }
+  };
+  
 
   constructor(private widgetService: WidgetService) {}
 
   ngOnInit() {
-    
-		this.widgetService.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
-      this.widgetData = data && JSON.parse(data);
-      this.widgetInfo = this.widgetData[this.type];
-      this.widgetProperty= this.widgetInfo.Properties && this.widgetInfo.Properties.length ? this.widgetInfo.Properties[0] : this.widgetProperty;
-    });
+    this.widgetProperty = this.data;
   }
-
   emitAddressBookEvent() {
     this.widgetData = this.widgetService.getData();
-    this.widgetInfo = this.widgetData[this.type];
-    this.openAddressBook.emit({widgetInfo: this.widgetInfo, type: this.type});
+    this.widgetInfo = this.widgetData;
+    this.openAddressBook.emit({ data: this.data});
   }
 }
+
+

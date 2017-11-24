@@ -17,7 +17,6 @@ export class WidgetService {
       .map(widgetData => widgetData.text());
   }
   getData(): any {
-    console.log("data>>>>", this.widgetData);
     return this.widgetData;
   }
 

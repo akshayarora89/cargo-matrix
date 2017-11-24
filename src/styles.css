@@ -29,3 +29,13 @@
 	width: 36px;
 	height: 36px;
 }
+/deep/ .form {
+    padding: 20px;
+}
+/deep/ .form img {
+    width: 100px;
+    margin: 10px 0 30px;
+}
+/deep/ .label {    
+    font-size: 16px;
+}

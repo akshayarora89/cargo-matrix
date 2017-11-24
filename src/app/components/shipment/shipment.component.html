@@ -1,0 +1,71 @@
+<div class="mt-20">
+  <div class="widget-wrapper display-widget">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-md-6 bold-wrapper">
+              <label>{{widgetProperty.Name}}</label>
+              <div class="tab-display">
+                {{widgetProperty.Properties[0].Name}}
+              </div>
+            </div>
+            <div class="col-md-4 bold-wrapper">
+              <label>Account Number</label>
+              <div class="tab-display"> {{widgetProperty.Properties[0].Account_no}}</div>
+            </div>
+            <div class="col-md-2 col-sm-2" class="btn-display">
+              <dx-button class="buttonStyle widget-btn" icon="assets/images/addressBook_01.jpg" (click)="emitAddressBookEvent()">
+              </dx-button>
+              <dx-button class="buttonStyle widget-btn" icon="assets/images/addbutton.png" (click)="openAddMemberPopup.emit({type:type})">
+              </dx-button>
+            </div>
+            <div class="col-md-12">
+              <div class="tab-content">
+                <div class="tab-space">
+                  <p *ngIf="widgetProperty.Properties[0].Address && widgetProperty.Properties[0].Address !==''">
+                    <label>Address : <span>
+             {{widgetProperty.Properties[0].Address}}
+             </span></label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].Country && widgetProperty.Properties[0].Country !==''">
+                    <label>Country:
+                      <span>{{widgetProperty.Properties[0].Country}}</span></label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].City && widgetProperty.Properties[0].City !==''">
+                    <label>City:
+                      <span>{{widgetProperty.Properties[0].City}}</span></label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].PostalCode && widgetProperty.Properties[0].PostalCode !== ''">
+                    <label>Postal Code :
+                      <span>{{widgetProperty.Properties[0].PostalCode}}</span></label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].Tax_ID_Name && widgetProperty.Properties[0].Tax_ID_Name !==''">
+                    <label>
+                      Tax ID Name :
+                      <span>{{widgetProperty.Properties[0].Tax_ID_Name}}</span>
+                    </label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].Tax_ID_Refrence && widgetProperty.Properties[0].Tax_ID_Refrence !==''">
+                    <label>Tax ID Refrence : <span>{{widgetProperty.Properties[0].Tax_ID_Refrence}}</span>
+                    </label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].IATA_Agent_Code && widgetProperty.Properties[0].IATA_Agent_Code !==''">
+                    <label>IATA_Agent_Code : <span>{{widgetProperty.Properties[0].IATA_Agent_Code}}</span></label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].CASS_Code && widgetProperty.Properties[0].CASS_Code !==''">
+                    <label>CASS_Code : <span>{{widgetProperty.Properties[0].CASS_Code}}</span></label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].Email && widgetProperty.Properties[0].Email !==''">
+                    <label>Email : <span>{{widgetProperty.Properties[0].Email}}</span></label>
+                  </p>
+                  <p *ngIf="widgetProperty.Properties[0].ContactName && widgetProperty.Properties[0].ContactName !==''">
+                    <label>Contact Name: <span>{{widgetProperty.Properties[0].ContactName}}</span></label>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

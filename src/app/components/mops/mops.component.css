@@ -1,26 +1,45 @@
-.itemDisplay{
-    display:inline-flex;
-}
-.alignClass {
-margin: 10px 20px;
-}
-.topDisplay{
-    margin-top: 2%;
-}
-.panelShade{
+.panel-contrast{
     background-color:#f49542;
     color:white;
     font-weight: bold;
 }
-.iconDisplay {
-    font-size: 19px;
-    color: #5e6166;
-    padding-right: 21px;
-    margin-right: -74px;
-    float: right;
 
+/deep/ .dx-fieldset {
+    max-width: 400px;
 }
-.searchDisplay{
+/deep/ .weather .dx-button-content {
+    padding: 4px 12px;
+}
+/deep/ .weather .dx-button-content .dx-icon {
+    width: 30px;
+    height: 30px;
+}
+.btn-display{
+    float: right;
+    margin-top: -35px;
+}
+.text-display{
+    width: 95%;
+}
+.list-display{
+    display:inline-flex;
+}
+.tab-display {
+margin: 10px 20px;
+}
+.top-display{
+    margin-top: 2%;
+}
+.label-display{
+    height: 16px;
+    margin-right: 12px;
+    margin-top: 1%;
+    text-align: center;
+    width:90px;
+    position: absolute;
+    right: 0px;
+}
+.search-bar{
     max-width:95%;
 }
 /deep/ .dx-fieldset {
@@ -33,10 +52,11 @@ margin: 10px 20px;
     width: 30px;
     height: 30px;
 }
-.buttonStyle{
-    float: right;
-    margin-top: -35px;
-}
-.textStyle{
-    width: 95%;
-}
+
+
+
+
+
+
+
+

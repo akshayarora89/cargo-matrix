@@ -1,18 +1,41 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component,Input, Output, OnInit, ViewChild } from '@angular/core';
 import { WidgetService } from '../../services/widget.service';
 import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
          DxFormComponent , DxSelectBoxModule , DxDataGridModule,DxPopoverModule, DxPopupComponent} from 'devextreme-angular';
 import  DataSource  from 'devextreme/data/data_source';
 
 @Component({
-  selector: 'app-shipping-widget-display-component',
-  templateUrl: './shipping-widget-display-component.component.html',
-  styleUrls: ['./shipping-widget-display-component.component.css']
+  selector: 'shipment-display-component',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
-export class ShippingWidgetDisplayComponentComponent implements OnInit {
+export class ContactComponent implements OnInit {
   @ViewChild("addressBookPopup") addressPopup: DxPopupComponent
   @ViewChild("addContactPopup") contactPopup: DxPopupComponent
 	selectedWidgetInfo: any = {};
+  
+  widgetInformation=[];
+  widgetData:any;
+  widgetInfo:any = {
+    Name: ""
+  };
+  widgetProperty: any = {
+    Header: "",
+    Name : "",
+    Account_no: "",
+    Address: "",
+    City: "",
+    State: "",
+    PostalCode: "",
+    Phone: "",
+    Country: "",
+    Fax: "",
+    Email: "",
+    Tax_ID_Name: "",
+    Tax_ID_Refrence: "",
+    IATA_Agent_Code: "",
+    CASS_Code: ""
+  };
 	selectedType: string = "";
 	isAddressBookPopupVisible: boolean = false;
 	isAddContactPopupVisible: boolean = false;
@@ -35,17 +58,26 @@ export class ShippingWidgetDisplayComponentComponent implements OnInit {
   constructor(private widgetService: WidgetService) { }
 
   ngOnInit() {
+
+    this.widgetService.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
+    this.widgetData = data && JSON.parse(data);
+    this.widgetData.forEach(item => {});
+      //this.widgetInfo = this.widgetData;
+     // this.widgetProperty= this.widgetInfo.Properties && this.widgetInfo.Properties.length ? this.widgetInfo.Properties[0] : this.widgetProperty;
+    });
     
   }
 
   openAddressBookPopup(data) {
-  	this.selectedWidgetInfo = data && data.widgetInfo;
-  	this.selectedType = data && data.type;
+  	this.selectedWidgetInfo = data;
+  	this.selectedType = data;
   	this.showAddressBookPopup();
   }
 
   openAddContactPopup(data) {
-  	this.selectedType = data && data.type;
+  	this.selectedType = data;
+/*    this.selectedType = data && data.type;
+*/
     this.showAddContactPopup();
   }
 
