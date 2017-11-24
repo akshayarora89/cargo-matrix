@@ -62,8 +62,6 @@ export class ContactComponent implements OnInit {
     this.widgetService.getWidgetDataFromFile('shippingWidget').subscribe((data) => {
     this.widgetData = data && JSON.parse(data);
     this.widgetData.forEach(item => {});
-      //this.widgetInfo = this.widgetData;
-     // this.widgetProperty= this.widgetInfo.Properties && this.widgetInfo.Properties.length ? this.widgetInfo.Properties[0] : this.widgetProperty;
     });
     
   }
@@ -76,8 +74,6 @@ export class ContactComponent implements OnInit {
 
   openAddContactPopup(data) {
   	this.selectedType = data;
-/*    this.selectedType = data && data.type;
-*/
     this.showAddContactPopup();
   }
 
