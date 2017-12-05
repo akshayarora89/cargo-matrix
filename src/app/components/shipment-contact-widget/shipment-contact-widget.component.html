@@ -2,17 +2,17 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 widgets-container">
       <div class="col-md-6 col-sm-12" *ngFor="let item of widgetData">
-        <shipment-component [data]="item" (openAddressBook)="openAddressBookPopup($event)" (openAddMemberPopup)="openAddContactPopup($event)"></shipment-component>
+        <app-display-contacts [data]="item" (openAddressBook)="openAddressBookPopup($event)" (openAddMemberPopup)="openAddContactPopup($event)"></app-display-contacts>
       </div>
     </div>
   </div>
 </div>
 <dx-popup #addressBookPopup class="popup" [showTitle]="true" title="Address Book" [dragEnabled]="false" [closeOnOutsideClick]="true" [(visible)]="isAddressBookPopupVisible">
-  <div *dxTemplate="let data of 'content'" id="addressBookPopup">
+  <div *dxTemplate="let data of 'content'" id="address-book-popup">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <dx-data-grid id="gridContainer" [dataSource]="selectedWidgetInfo.data.Properties" [allowColumnReordering]="true" (onCellPrepared)="onCellPrepared($event)" (onContentReady)="onContentReady($event)" [allowColumnResizing]="true" [columnAutoWidth]="true">
+          <dx-data-grid id="grid-container" [dataSource]="selectedWidgetInfo.data.Properties" [allowColumnReordering]="true" (onCellPrepared)="onCellPrepared($event)" (onContentReady)="onContentReady($event)" [allowColumnResizing]="true" [columnAutoWidth]="true">
             <dxo-header-filter [visible]="true"></dxo-header-filter>
             <dxo-filter-row [visible]="true"></dxo-filter-row>
             <dxo-search-panel [visible]="true"></dxo-search-panel>
@@ -29,7 +29,7 @@
   </div>
 </dx-popup>
 <dx-popup #addContactPopup class="popup" [showTitle]="true" title="Add New {{selectedType}}" [dragEnabled]="false" [closeOnOutsideClick]="true" [(visible)]="isAddContactPopupVisible" (onHidden)="addContactPopupHidden()">
-  <div *dxTemplate="let data of 'content'" id="addContactPopup">
+  <div *dxTemplate="let data of 'content'" id="add-contact-popup">
     <div class="container">
       <div class="row">
         <div id="form-container">

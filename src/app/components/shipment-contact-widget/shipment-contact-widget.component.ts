@@ -1,15 +1,13 @@
 import { Component,Input, Output, OnInit, ViewChild } from '@angular/core';
-import { WidgetService } from '../../services/widget.service';
-import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
-         DxFormComponent , DxSelectBoxModule , DxDataGridModule,DxPopoverModule, DxPopupComponent} from 'devextreme-angular';
+import { WidgetService } from '@app/services/widget.service';
+import { DxFormComponent, DxPopupComponent} from 'devextreme-angular';
 import  DataSource  from 'devextreme/data/data_source';
 
 @Component({
-  selector: 'shipment-display-component',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-shipment-contact-widget',
+  templateUrl: './shipment-contact-widget.component.html'
 })
-export class ContactComponent implements OnInit {
+export class ShipmentContactWidgetComponent implements OnInit {
   @ViewChild("addressBookPopup") addressPopup: DxPopupComponent
   @ViewChild("addContactPopup") contactPopup: DxPopupComponent
 	selectedWidgetInfo: any = {};

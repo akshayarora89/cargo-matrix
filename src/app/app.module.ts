@@ -2,31 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { MopsComponent } from './components/mops/mops.component';
-import { HeaderComponent } from './components/layout/header/header.component';
-import { FooterComponent } from './components/layout/footer/footer.component';
+import { MopsComponent } from '@app/components/mops/mops.component';
+import { HeaderComponent } from '@app/components/layout/header/header.component';
+import { FooterComponent } from '@app/components/layout/footer/footer.component';
 import { RouterModule , Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from '@app/components/home/home.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { FormsModule } from '@angular/forms';
 import {Location} from '@angular/common';
-import { DxTextBoxModule, 
-  DxListModule,DxBoxModule,
-  DxTemplateModule,
-  DxPopupModule,DxTooltipModule,
-  DxFormModule,DxDataGridModule,DxPopoverModule,
-  DxButtonModule,DxFormComponent} from 'devextreme-angular';
 
-import { ProductService } from './services/product.service';
-import { WidgetService } from './services/widget.service';
-import { ContactComponent } from './components/contact/contact.component';
-import { shipmentComponent } from './components/shipment/shipment.component';
+import { DevExtremeComponentsModule } from '@global/dev-extreme-components.module';
+
+import { ProductService } from '@app/services/product.service';
+import { WidgetService } from '@app/services/widget.service';
+import { ShipmentContactWidgetComponent } from '@app/components/shipment-contact-widget/shipment-contact-widget.component';
+import { DisplayContactsComponent } from '@app/components/display-contacts/display-contacts.component';
 
 const  appRoutes:Routes = [
 
   {path:'',component:HomeComponent},
   {path:'mops',component:MopsComponent},
-  {path:'contact',component:ContactComponent}
+  {path:'shipment-contact-widget',component:ShipmentContactWidgetComponent}
 
 ];
 
@@ -37,27 +33,19 @@ const  appRoutes:Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ContactComponent,
-    shipmentComponent
+    ShipmentContactWidgetComponent,
+    DisplayContactsComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    DxTextBoxModule,
-    DxListModule,
-    DxTemplateModule,
-    DxFormModule,
-    DxButtonModule,
-    DxBoxModule,
-    DxPopupModule,
+    DevExtremeComponentsModule,
     FormsModule,
-    DxDataGridModule,
-    DxTooltipModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService,WidgetService],
   exports: [
-    shipmentComponent
+    DisplayContactsComponent
   ],
   bootstrap: [AppComponent]
 })

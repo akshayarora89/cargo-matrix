@@ -1,5 +1,5 @@
 <div class="mt-20">
-  <div class="widget-wrapper display-widget">
+  <div class="widget-wrapper">
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-default">
@@ -14,10 +14,10 @@
               <label>Account Number</label>
               <div class="tab-display"> {{widgetProperty.Properties[0].Account_no}}</div>
             </div>
-            <div class="col-md-2 col-sm-2" class="btn-display">
-              <dx-button class="buttonStyle widget-btn" icon="assets/images/addressBook_01.jpg" (click)="emitAddressBookEvent()">
+            <div class="col-md-2 col-sm-2 btn-display">
+              <dx-button class="button-style widget-btn" icon="assets/images/addressBook_01.jpg" (click)="emitAddressBookEvent()">
               </dx-button>
-              <dx-button class="buttonStyle widget-btn" icon="assets/images/addbutton.png" (click)="openAddMemberPopup.emit({type:type})">
+              <dx-button class="button-style widget-btn" icon="assets/images/addbutton.png" (click)="openAddMemberPopup.emit({type:type})">
               </dx-button>
             </div>
             <div class="col-md-12">
@@ -69,3 +69,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>

@@ -1,28 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DxTextBoxModule, DxListModule, DxTemplateModule, DxFormModule,
-         DxFormComponent , DxSelectBoxModule } from 'devextreme-angular';
+import { DxFormComponent } from 'devextreme-angular';
 import  DataSource  from 'devextreme/data/data_source';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '@app/services/product.service';
 import { Location } from '@angular/common';
 
 
 @Component({
   selector: 'app-mops',
-  templateUrl: './mops.component.html',
-  styleUrls: ['./mops.component.css']
+  templateUrl: './mops.component.html'
 })
 
 export class MopsComponent implements OnInit {
 
-	dataSource: any;
-  processdataSource:any;
-  subdataSource:any;
+  processesTitle: String = "MOPS";
+
+	processesDataSource: any;
+  currentProcessType: String = 'MOPS';
 
   isVisible: boolean = false;
-  isMopProcessesVisible: boolean = false;
-  isSubProcessesVisible: boolean = false;
-
   selectedProcess: any = {};
   selectedSubProcess:any={};
 
@@ -42,64 +38,118 @@ export class MopsComponent implements OnInit {
   }
   
   setDataSource() {
-
-      this.dataSource = new DataSource({
-      store: this.productService.getCompanies(),
-      searchOperation: "contains",
-      searchExpr: "name"
-     }); 
-
-     if(this.isMopProcessesVisible){
-      this.processdataSource = new DataSource({
-      store: this.productService.getProcesses(),
-      searchOperation: "contains",
-      searchExpr: "description"
-       }); 
-     } 
-
-     if(this.isSubProcessesVisible){
-        this.subdataSource = new DataSource({
-        store: this.selectedSubProcess.workflow,
-        searchOperation: "contains",
-        searchExpr: "description"
+    switch(this.currentProcessType) {
+      case 'MOPS': 
+        this.processesDataSource = new DataSource({
+          store: this.productService.getCompanies(),
+          searchOperation: "contains",
+          searchExpr: "name"
         });
-     }
+        this.processesTitle = 'MOPS';
+        break;
+      case 'process':
+        this.processesDataSource = new DataSource({
+          store: this.productService.getProcesses(),
+          searchOperation: "contains",
+          searchExpr: "description"
+        });
+        this.processesTitle = 'MOP Processes';
+        break;
+      case 'sub-process':
+        this.processesDataSource = new DataSource({
+          store: this.selectedSubProcess.workflow,
+          searchOperation: "contains",
+          searchExpr: "description"
+        });
+        this.processesTitle = 'MOP Sub Processes';
+        break;
+      default: 
+        this.processesDataSource = new DataSource({
+          store: this.productService.getCompanies(),
+          searchOperation: "contains",
+          searchExpr: "name"
+        });
+        this.processesTitle = 'MOPS';
+    }
   }
 
   search(e) {
-    this.dataSource.searchValue(e.value);
-    this.dataSource.load();
-
-    if(this.isMopProcessesVisible){
-    this.processdataSource.searchValue(e.value);
-    this.processdataSource.load();
-    }
-    if(this.isSubProcessesVisible){
-    this.subdataSource.searchValue(e.value);
-    this.subdataSource.load();
-    }
+    this.processesDataSource.searchValue(e.value);
+    this.processesDataSource.load();
   }
 
   onArrowBack(e){
-   this.location.back();
+    switch(this.currentProcessType) {
+      case 'MOPS': 
+        this.location.back();
+        break;
+      case 'process':
+        this.currentProcessType = 'MOPS';
+        break;
+      case 'sub-process':
+        this.currentProcessType = 'process';
+        break;
+      default:
+        this.location.back();
+    }
+    this.setDataSource();
   }
 
- setIqCode(subProcess){
-  let iqCodeObject = subProcess.workflowIQCodes && subProcess.workflowIQCodes.length > 0 ? subProcess.workflowIQCodes[0].iqcode : null;
-  this.iqCode = iqCodeObject ? `${iqCodeObject.milestone}\n${iqCodeObject.meaning}\n${iqCodeObject.notes}` : "No IQCode";
+  selectProcess(data) {
+    switch(this.currentProcessType) {
+      case 'MOPS':
+        this.currentProcessType = 'process';
+        this.setDataSource();
+        break;
+      case 'process':
+        this.currentProcessType = 'sub-process';
+        this.setSelectedProcess(data);
+        this.setDataSource();
+        break;
+      case 'sub-process':
+        this.setSelectedSubProcess(data);
+        break;
+      default:
+        this.currentProcessType = 'MOPS';
+        this.setDataSource();  
+    }
   }
 
-  updateIqCodeOnMouseOver(subProcess) {
-    this.setIqCode(subProcess);
-    this.showIqCode = true;
+  getCurrentImgSrc(data) {
+    let imgSrc = "";
+    switch(this.currentProcessType) {
+      case 'MOPS':
+        imgSrc = data.logo;
+        break;
+      case 'process':
+        imgSrc = data.icon32;
+        break;
+      case 'sub-process':
+        imgSrc = data.workflowSubstep.length ? data.workflowSubstep[0].icon32 : '';
+        break;
+    }
+    return imgSrc;
   }
 
-  updateIqCodeOnMouseOut() {
-    this.showIqCode = false;
+  getCurrentProcessDescription(data) {
+    let processDesc = "";
+    switch(this.currentProcessType) {
+      case 'MOPS':
+        processDesc = data.name;
+        break;
+      case 'process':
+        processDesc = `${data.topicId}-${data.description}`;
+        break;
+      case 'sub-process':
+        processDesc = data.description;
+        break;
+    }
+    return processDesc; 
   }
 
-  openAddCompanyPopup() {
-    this.isVisible = true;
+  getIqCode(subProcess){
+    let iqCodeObject = subProcess.workflowIQCodes && subProcess.workflowIQCodes.length > 0 ? subProcess.workflowIQCodes[0].iqcode : null;
+    this.iqCode = iqCodeObject ? `${iqCodeObject.milestone}\n${iqCodeObject.meaning}\n${iqCodeObject.notes}` : "No IQCode";
   }
 
   addCompany() {
@@ -111,31 +161,19 @@ export class MopsComponent implements OnInit {
     this.setDataSource();
   }
 
-  fetchCurrentCompany(company) {
-    if(company)
-    this.productService.setSelectedCompany(company);
-    this.isMopProcessesVisible = true;
-    this.setDataSource();
-  }
-
   setSelectedProcess(process) {
     this.productService.setSelectedProcess(process);
-    this.isSubProcessesVisible = true;
     this.selectedSubProcess = process;
-    this.setDataSource();
   }
 
   setSelectedSubProcess(subProcess) {
     this.productService.setSelectedSubProcess(subProcess);
   }
 
-  toggleWithTemplate() {
-        this.withTemplateVisible = !this.withTemplateVisible;
+  setIqCode(data) {
+    if(this.currentProcessType == "sub-process") {
+      this.getIqCode(data);
+      this.showIqCode = true;
+    }
   }
-
 }
-
-
-
-
-  

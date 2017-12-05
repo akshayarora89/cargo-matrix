@@ -1,0 +1,246 @@
+/* You can add global styles to this file, and also import other style files */
+
+.dx-icon-arrowleft {
+  padding: 5px;
+  &:hover {
+  	background-color: rgba(0, 0, 0, .2);
+  }
+}
+
+#form label {
+  text-align: right !important;
+}
+
+#gridContainer a {
+  text-decoration: none !important;
+  font-size: 16px !important;
+  padding: 3px !important;
+}
+
+.widget-btn {
+	border: none;
+	.dx-button-content{
+		padding: 0px !important;
+	}
+	.dx-icon {
+		width: 36px;
+		height: 36px;
+	}
+}
+
+/deep/ .form {
+  padding: 20px;
+  img {
+    width: 100px;
+    margin: 10px 0 30px;
+	}
+}
+
+/deep/ .label {    
+    font-size: 16px;
+}
+
+app-display-contacts {
+	.mt-20 {
+	  margin-top: 20px
+	}
+
+	.mb-5 {
+	  margin-bottom: 5px;
+	}
+
+	.px-0 {
+	  padding-left: 0px;
+	  padding-right: 0px;
+	}
+
+	.widget-wrapper {
+	  border: 2px solid #eee;
+	  padding: 10px;
+	  .bold-wrapper {
+		  font-weight: bold;
+		  font-size: 15px;
+		}
+		.tab-display {
+	  	border: 1px solid #ddd;
+		  padding: 5px 10px;
+		  vertical-align: middle;
+		  margin-top: 4px;
+		}
+		.btn-display {
+		  float: right;
+		}
+
+		.tab-content {
+		  background: #fff;
+		  border: 1px solid #ddd;
+		  padding-left: 20px;
+		  color: #333;
+		  line-height: 0.8;
+		  margin-top: 10px;
+		  .tab-space {
+			  margin-top: 10px;
+			  p {
+			  	padding: 5px 0px;
+			  }
+			}
+		}
+	}
+
+	.custom-popup .dx-popup-title .dx-toolbar {
+	  background-color: coral !important;
+	}
+
+	.alignment {
+	  text-align: center;
+	}
+
+	.widget-panel {
+	  margin: 0px;
+	  border-radius: 2px;
+	  border: 2px solid #B2BFD7;
+	  .panel-body {
+		  padding: 7px;
+		  min-height: 36px;
+		  label {
+			  min-height: 42px;
+			}
+		}
+	}
+}
+
+app-home {
+	.jumbo-class{
+		margin-top:30px;
+	}
+}
+
+
+app-footer {
+	footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+    font-size: large;
+    margin-top: 27%;
+    text-align: center;
+    .inc-attribution {
+	    font-size: large;
+	  }
+  }
+}
+
+
+app-header {
+	.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+app-mops {
+	.panel-contrast{
+    background-color:#f49542;
+    color:white;
+    font-weight: bold;
+	}
+
+	/deep/ .dx-fieldset {
+    max-width: 400px;
+	}
+	/deep/ .weather .dx-button-content {
+    padding: 4px 12px;
+	}
+	/deep/ .weather .dx-button-content .dx-icon {
+    width: 30px;
+    height: 30px;
+	}
+	.btn-display{
+    float: right;
+    margin-top: -35px;
+	}
+	.text-display{
+    width: 95%;
+	}
+	.list-display{
+    display:inline-flex;
+	}
+	.tab-display {
+		margin: 10px 20px;
+	}
+	.top-display{
+    margin-top: 2%;
+	}
+	.label-display{
+    height: 16px;
+    margin-right: 12px;
+    margin-top: 1%;
+    text-align: center;
+    width:90px;
+    position: absolute;
+    right: 0px;
+	}
+	.search-bar{
+    max-width:95%;
+	}
+	/deep/ .dx-fieldset {
+    max-width: 400px;
+	}
+	/deep/ .weather .dx-button-content {
+    padding: 4px 12px;
+	}
+	/deep/ .weather .dx-button-content .dx-icon {
+    width: 30px;
+    height: 30px;
+	}
+}
+
+app-shipment-contact-widget {
+	.flex-container {
+		display: block;
+		justify-content: center;
+		.widgets-container {
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
+		app-display-contacts {
+			width: 50%;
+		}
+	}
+	.custom-popup .dx-popup-title .dx-toolbar {
+	  background-color: coral !important;
+	}
+	.alignment {
+	  text-align: center;
+	}
+	.random .dx-field-item-label-content {
+	  text-align: right !important;
+	}
+
+	.btn1-color{
+	  background-color:#ff9a53;
+	  color:white;
+	}
+	.btn2-color{
+	  background-color:#b0b0b0;
+	  color:white;
+	}
+	.scale{
+	  border-top:1px solid #D8D6D5;
+	  border-bottom:1px solid #D8D6D5;
+	}
+	.dev-btn{
+	  margin-top:10px; 
+	  margin-bottom:10px; 
+	  float:right;
+	}
+	/*Media Queries*/
+
+	@media screen and (max-width: 768px)
+	{
+	  app-display-contacts {
+	    width: 100%;
+	  }  
+	}
+}

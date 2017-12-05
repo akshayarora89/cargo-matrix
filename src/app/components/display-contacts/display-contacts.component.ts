@@ -1,12 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { WidgetService } from '../../services/widget.service';
+import { WidgetService } from '@app/services/widget.service';
 
 @Component({
-  selector: 'shipment-component',
-  templateUrl: './shipment.component.html',
-  styleUrls: ['./shipment.component.css']
+  selector: 'app-display-contacts',
+  templateUrl: './display-contacts.component.html'
 })
-export class shipmentComponent implements OnInit {
+export class DisplayContactsComponent implements OnInit {
 
 
 	widgetData:any;
