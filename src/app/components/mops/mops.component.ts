@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DxFormComponent } from 'devextreme-angular';
+import { DxFormComponent, DxTooltipComponent } from 'devextreme-angular';
 import  DataSource  from 'devextreme/data/data_source';
 import { ProductService } from '@app/services/product.service';
 import { Location } from '@angular/common';
@@ -13,6 +13,7 @@ import { Location } from '@angular/common';
 
 export class MopsComponent implements OnInit {
 
+  @ViewChildren(DxTooltipComponent) toolTips: QueryList<DxTooltipComponent>;
   processesTitle: String = "MOPS";
 
 	processesDataSource: any;
@@ -147,11 +148,6 @@ export class MopsComponent implements OnInit {
     return processDesc; 
   }
 
-  getIqCode(subProcess){
-    let iqCodeObject = subProcess.workflowIQCodes && subProcess.workflowIQCodes.length > 0 ? subProcess.workflowIQCodes[0].iqcode : null;
-    this.iqCode = iqCodeObject ? `${iqCodeObject.milestone}\n${iqCodeObject.meaning}\n${iqCodeObject.notes}` : "No IQCode";
-  }
-
   addCompany() {
     let newCompany = {
       name: this.companyName,
@@ -170,10 +166,25 @@ export class MopsComponent implements OnInit {
     this.productService.setSelectedSubProcess(subProcess);
   }
 
-  setIqCode(data) {
-    if(this.currentProcessType == "sub-process") {
-      this.getIqCode(data);
-      this.showIqCode = true;
+  setIqCode(subProcess) {
+    let iqCodeObject = subProcess.workflowIQCodes && subProcess.workflowIQCodes.length > 0 ? subProcess.workflowIQCodes[0].iqcode : null;
+    this.iqCode = iqCodeObject ? `${iqCodeObject.milestone}\n${iqCodeObject.meaning}\n${iqCodeObject.notes}` : "No IQCode";
+  }
+
+  showTooltip(evt, data) {
+    if(this.currentProcessType == 'sub-process') {
+      this.toolTips.forEach((tooltipRef) => {
+        if(tooltipRef.target.replace('#', '') == evt.target.id) {
+          this.setIqCode(data);
+          tooltipRef.instance.show();
+        }
+      });  
     }
+  }
+
+  hideTooltip() {
+    this.toolTips.forEach((tooltipRef) => {
+      tooltipRef.instance.hide();
+    });
   }
 }

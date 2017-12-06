@@ -71,7 +71,7 @@ export class ShipmentContactWidgetComponent implements OnInit {
   }
 
   openAddContactPopup(data) {
-  	this.selectedType = data;
+  	this.selectedType = data.type;
     this.showAddContactPopup();
   }
 

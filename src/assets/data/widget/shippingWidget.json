@@ -36,7 +36,7 @@
   },
   {
     "Key": "02",
-    "name":"Carrier",
+    "name":"CarrierAgent",
     "WholderID": "W02",
     "Name": "Issuing Carrier’s Agent Name",
     "Properties": [
@@ -71,7 +71,7 @@
   },
   {
     "Key": "03",
-    "name":"CarrierAgent",
+    "name":"Carrier",
     "WholderID": "W03",
     "Name": "Issuing Carrier’s Name & Address",
     "Properties": [

@@ -1,9 +1,7 @@
-<div class="flex-container container-fluid">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 widgets-container">
-      <div class="col-md-6 col-sm-12" *ngFor="let item of widgetData">
-        <app-display-contacts [data]="item" (openAddressBook)="openAddressBookPopup($event)" (openAddMemberPopup)="openAddContactPopup($event)"></app-display-contacts>
-      </div>
+<div class="flex-container">
+  <div class="widgets-container">
+    <div class="widget" *ngFor="let item of widgetData">
+      <app-display-contacts [data]="item" (openAddressBook)="openAddressBookPopup($event)" (openAddMemberPopup)="openAddContactPopup($event)"></app-display-contacts>
     </div>
   </div>
 </div>
@@ -49,8 +47,8 @@
               <dxi-item dataField="Fax"></dxi-item>
               <dxi-item *ngIf="selectedType === 'Shipper'" dataField="Tax_ID_Name"></dxi-item>
               <dxi-item *ngIf="selectedType === 'Shipper'" dataField="Tax_ID_Reference"></dxi-item>
-              <dxi-item *ngIf="selectedType === 'Carrier Agent'" dataField="IATA_Agent_Code"></dxi-item>
-              <dxi-item *ngIf="selectedType === 'Carrier Agent'" dataField="CASS_Code"></dxi-item>
+              <dxi-item *ngIf="selectedType === 'CarrierAgent'" dataField="IATA_Agent_Code"></dxi-item>
+              <dxi-item *ngIf="selectedType === 'CarrierAgent'" dataField="CASS_Code"></dxi-item>
             </dx-form>
             <br/>
             <div class="col-md-12 alignment scale">

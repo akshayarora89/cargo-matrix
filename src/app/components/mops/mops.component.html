@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="panel panel-default top-display">
-      <div class="panel-body panel-contrast"><span class="dx-icon-arrowleft icon" (click)="onArrowBack($event)"></span> {{processesTitle}}</div>
+    <div class="panel">
+      <div class="panel-body"><span class="dx-icon-arrowleft icon" (click)="onArrowBack($event)"></span> {{processesTitle}}</div>
     </div>
     <!--SEARCH BAR-->
-    <div class="dx-searchbar top-display search-bar">
+    <div class="dx-searchbar">
       <dx-text-box valueChangeEvent="keyup" [placeholder]="'Search ' + processesTitle" mode="search" (onValueChanged)="search($event)" class="text-display">
       </dx-text-box>
       <dx-button (click)="isVisible = true;" text="+" class="btn-display" *ngIf="currentProcessType == 'MOPS'">
@@ -12,13 +12,15 @@
       <dx-popup #MyPopup show-title="true" title="Add New Mop Details" [visible]="isVisible">
         <div *dxTemplate="let data of 'content'">
           <form (ngSubmit)="addCompany()">
-            <div class="form-group">
-              <label for="topic-id">Enter Mop Name:</label>
-              <input type="text" class="form-control" id="topic-id" placeholder="Enter Mop Name" name="name" [(ngModel)]="companyName">
-            </div>
-            <div class="form-group">
-              <input type="submit" class="btn btn-warning" value="Add" />
-            </div>
+            <ul class="flex-outer">
+              <li>
+                <label for="topic-id">Enter Mop Name:</label>
+                <input type="text" class="form-control" id="topic-id" placeholder="Enter Mop Name" name="name" [(ngModel)]="companyName">
+              </li>
+              <li>
+                <button type="submit">Add</button>
+              </li>
+            </ul>
           </form>
         </div>
       </dx-popup>
@@ -28,15 +30,13 @@
       <dx-list [dataSource]="processesDataSource">
         <div *dxTemplate="let data of 'item';let i = index" class="list-display">
           <img [src]="getCurrentImgSrc(data)" />
-          <div class="tab-display" (click)="selectProcess(data)" id="iq" (mouseenter)="setIqCode(data); withTemplateVisible = true;" (mouseleave)="withTemplateVisible = false; showIqCode = false;">{{getCurrentProcessDescription(data)}}</div>
-          <span *ngIf="currentProcessType=='process'" class="label label-success label-display">{{data.phases.code}} - {{data.phases.description}}</span>
-          <div *ngIf="showIqCode" class="iq-code">
-            <dx-tooltip target="#iq" [(visible)]="withTemplateVisible">
-              <div *dxTemplate="let data = data of 'content'">
-                {{iqCode}}
-              </div>
-            </dx-tooltip>
-          </div>
+          <div class="tab-display" (click)="selectProcess(data)" [id]="'iq'+i" (mouseenter)="showTooltip($event,data)" (mouseleave)="hideTooltip()">{{getCurrentProcessDescription(data)}}</div>
+          <span *ngIf="currentProcessType=='process'" class="label-display">{{data.phases.code}} - {{data.phases.description}}</span>
+          <dx-tooltip [target]="'#iq'+i">
+            <div *dxTemplate="let data = data of 'content'">
+              {{iqCode}}
+            </div>
+          </dx-tooltip>
         </div>
       </dx-list>
     </div>

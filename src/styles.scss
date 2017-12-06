@@ -40,6 +40,52 @@
     font-size: 16px;
 }
 
+
+.flex-outer {
+  list-style-type: none;
+  padding: 0;
+  li {
+  	display: flex;
+	  flex-wrap: wrap;
+	  align-items: center;
+	  label,p {
+	  	padding: 8px;
+		  font-weight: 300;
+		  letter-spacing: .09em;
+		  text-transform: uppercase;
+	  }
+	  p {
+	  	flex: 1 0 120px;
+  		max-width: 220px;
+  		margin: 0;	
+	  }
+	  input[type='text'] {
+	  	line-height: 2;
+	    font-size: 12px;
+	  }
+	  button {
+		  padding: 8px 16px;
+		  border: none;
+		  background: #333;
+		  color: #f2f2f2;
+		  text-transform: uppercase;
+		  letter-spacing: .09em;
+		  border-radius: 2px;
+		  cursor: pointer;
+		}
+  }
+  > li:not(:last-child) {
+  	margin-bottom: 20px;
+  }
+  > li > label {
+	  flex: 1 0 120px;
+	  max-width: 220px;
+  }
+  > li > label + * {
+  	flex: 1 0 220px;
+  }
+}
+
 app-display-contacts {
 	.mt-20 {
 	  margin-top: 20px
@@ -56,7 +102,24 @@ app-display-contacts {
 
 	.widget-wrapper {
 	  border: 2px solid #eee;
-	  padding: 10px;
+	  margin: 10px;
+	  .panel-body {
+	  	display: flex;
+	    padding: 10px;
+	    flex-wrap: wrap;
+	    .widget-body {
+		    width: calc(100% * (1/3) - 10px - 1px);
+		    flex-grow: 1;
+		    padding: 5px;
+		    .widget-btn {
+		    	position: relative;
+			    top: 12px;
+		    }
+		    &.with-flex {
+		    	flex: 1;
+		    }
+	    }
+	  }
 	  .bold-wrapper {
 		  font-weight: bold;
 		  font-size: 15px;
@@ -66,9 +129,6 @@ app-display-contacts {
 		  padding: 5px 10px;
 		  vertical-align: middle;
 		  margin-top: 4px;
-		}
-		.btn-display {
-		  float: right;
 		}
 
 		.tab-content {
@@ -110,8 +170,18 @@ app-display-contacts {
 }
 
 app-home {
-	.jumbo-class{
-		margin-top:30px;
+	.container{
+		padding: 10px;
+		.title {
+			text-align: center;
+			h1 {
+				font-size: 30px;
+				margin: 10px 0px;
+			}
+			p {
+				margin: 10px 0px;
+			}
+		}
 	}
 }
 
@@ -131,18 +201,68 @@ app-footer {
 
 
 app-header {
-	.navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-  }
+	.navbar-container {
+	  display: flex;
+	  align-items: center;
+	  width: 100%;
+	  background: #eee;
+	  padding: 20px;
+	  margin: 0 0 20px 0;
+	  list-style-type: none;
+	  > * {
+	    margin: 0 10px;
+	  }
+	  .item {
+	  	a {
+	  		text-decoration: none;
+	  	}
+	  }
+
+	}
 }
 
 app-mops {
-	.panel-contrast{
-    background-color:#f49542;
-    color:white;
-    font-weight: bold;
+	.container {
+		padding: 10px;
+		.row {
+			margin: 10px;
+			.panel {
+				margin-bottom: 10px;
+				.panel-body{
+			    background-color:#f49542;
+			    color:white;
+			    font-weight: bold;
+			    padding: 20px;
+				}
+			}
+			.text-display {
+				width: 96%;
+		    display: inline-block;
+			}
+			.btn-display{
+		    float: right;
+		    height: 36px;
+			}
+			.list-container {
+				.list-display{
+			    display:inline-flex;
+				}
+				.tab-display {
+					margin: 10px 20px;
+				}
+				.label-display{
+			    padding: 2px;
+			    margin-right: 12px;
+			    margin-top: 8px;
+			    text-align: center;
+			    position: absolute;
+			    right: 0px;
+			    background-color: chartreuse;
+				}
+			}
+		}
 	}
+	
 
 	/deep/ .dx-fieldset {
     max-width: 400px;
@@ -153,34 +273,6 @@ app-mops {
 	/deep/ .weather .dx-button-content .dx-icon {
     width: 30px;
     height: 30px;
-	}
-	.btn-display{
-    float: right;
-    margin-top: -35px;
-	}
-	.text-display{
-    width: 95%;
-	}
-	.list-display{
-    display:inline-flex;
-	}
-	.tab-display {
-		margin: 10px 20px;
-	}
-	.top-display{
-    margin-top: 2%;
-	}
-	.label-display{
-    height: 16px;
-    margin-right: 12px;
-    margin-top: 1%;
-    text-align: center;
-    width:90px;
-    position: absolute;
-    right: 0px;
-	}
-	.search-bar{
-    max-width:95%;
 	}
 	/deep/ .dx-fieldset {
     max-width: 400px;
@@ -196,13 +288,17 @@ app-mops {
 
 app-shipment-contact-widget {
 	.flex-container {
-		display: block;
-		justify-content: center;
+		display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
 		.widgets-container {
-			width: 100%;
+			margin: 10px;
+    	width: 100%;
 			display: flex;
-			justify-content: flex-start;
-			flex-wrap: wrap;
+    	flex-wrap: wrap;
+    	.widget {
+    		width: 50%;
+    	}
 		}
 		app-display-contacts {
 			width: 50%;
